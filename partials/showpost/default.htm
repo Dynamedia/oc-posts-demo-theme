@@ -3,9 +3,9 @@
 {% set contents = __SELF__.getContentsList %}
 
 <article class="dynamedia blog">
-    {% if post.main_images.banner_image %}
+    {% if post.images.banner %}
         {% put indexBannerStyle %}
-        background-image: url('{{ post.main_images.banner_image.default | media }}');
+        background-image: url('{{ post.images.banner.default | media }}');
         {% endput %}
     {% endif %}
 
@@ -41,7 +41,7 @@
     {% endif %}
 
     {% if post.getRequestedPage == 1 %}
-    <p class="introduction">{{ post.introduction | md }}</p>
+    <p class="excerpt">{{ post.excerpt | md }}</p>
     {% endif %}
 
 

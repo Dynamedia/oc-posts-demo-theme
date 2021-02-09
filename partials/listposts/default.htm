@@ -5,16 +5,16 @@
     <div class="col s12 m12 l6">
         <div class="card">
             <a href="{{post.url}}"><div class="card-image">
-                <img src="{{ post.main_images.list_image.default | media }}"
-                     alt="{{ post.main_images.list_image.alt }}">
+                <img src="{{ post.images.list.default | media }}"
+                     alt="{{ post.images.list.alt }}">
                 <span class="card-title">{{ post.title }}</span>
             </div></a>
             
             <div class="card-content">
-                {% if post.introduction %}
-                <p>{{ post.introduction|length > 150 ? post.introduction|slice(0, 150) ~ '…' : post.introduction  }}</p>
+                {% if post.excerpt %}
+                <p>{{ post.excerpt|length > 150 ? post.excerpt|slice(0, 150) ~ '…' : post.excerpt  }}</p>
                 {% else %}
-                <p>This post needs an introduction</p>
+                <p>This post needs an excerpt</p>
                 {% endif %}
             </div>
             
@@ -31,15 +31,15 @@
     <div class="col s12 m6 l6 xl4">
         <div class="card">
             <a href="{{post.url}}"><div class="card-image">
-                <img src="{{ post.main_images.list_image | media }}"
-                     alt="{{ post.main_images.list_image_alt }}">
+                <img src="{{ post.images.list | media }}"
+                     alt="{{ post.images.list_alt }}">
                 <span class="card-title">{{ post.title }}</span>
             </div></a>
             <div class="card-content">
-                {% if post.introduction %}
-                <p class="truncate">{{ post.introduction |slice(1,100) }}</p>
+                {% if post.excerpt %}
+                <p class="truncate">{{ post.excerpt |slice(1,100) }}</p>
                 {% else %}
-                <p class="truncate">This post needs an introduction</p>
+                <p class="truncate">This post needs an excerpt</p>
                 {% endif %}
             </div>
             <div class="card-action">
