@@ -1,0 +1,16 @@
+title = "Multi-Function Posts Page 4 Parents"
+url = "/:level-0/:parent-2/:parent-1/:parent-0/:slug"
+layout = "default"
+is_hidden = 0
+
+[listPosts]
+categoryFilter = "__fromURL__"
+includeSubcategories = 1
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+
+[showPost]
+==
+{% component 'listPosts' %}
+{% component 'showPost' %}

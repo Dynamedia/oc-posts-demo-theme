@@ -1,0 +1,15 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[listPosts]
+postsLimit = 8
+postsPerPage = 8
+noPostsMessage = "rainlab.blog::lang.settings.posts_no_posts_default"
+sortOrder = "published_at desc"
+==
+<div class="content">
+    <h2>Latest Posts</h2>
+    {% component 'listPosts' %}
+</div>

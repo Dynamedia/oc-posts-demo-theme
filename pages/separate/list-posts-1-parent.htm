@@ -1,0 +1,11 @@
+title = "List Posts 1 Parent"
+url = "/:level-0/:slug/posts"
+is_hidden = 0
+
+[listPosts]
+categoryFilter = "__fromURL__"
+includeSubcategories = 1
+postsPerPage = 10
+noPostsMessage = "No posts found"
+==
+{% component 'listPosts' %}

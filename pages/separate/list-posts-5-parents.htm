@@ -1,0 +1,12 @@
+title = "List Posts 5 Parents"
+url = "/:level-0/:level-1/:parent-2/:parent-1/:parent-0/:slug/posts"
+is_hidden = 0
+
+[listPosts]
+categoryFilter = "__fromURL__"
+includeSubcategories = 1
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+==
+{% component 'listPosts' %}

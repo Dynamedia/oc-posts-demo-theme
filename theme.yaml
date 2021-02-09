@@ -1,0 +1,17 @@
+name: "Posts Demo"
+description: "Demo theme for oc-dynamedia-posts"
+author: "Rob Ballantyne (Dynamedia)"
+homepage: "https://dynamedia.uk"
+code: "postsdemo"
+form:
+    fields:
+        site_brand:
+            label: Site Brand
+            comment: The brand
+            default: Dynamedia
+        site_name:
+            label: Site name
+            comment: The website name
+            default: Dynamedia Posts Plugin Demo
+        googleanalytics_id:
+            label: 'Google Analytics ID'
