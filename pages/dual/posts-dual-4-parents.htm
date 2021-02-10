@@ -3,14 +3,14 @@ url = "/:level-0/:parent-2/:parent-1/:parent-0/:slug"
 layout = "default"
 is_hidden = 0
 
-[listPosts]
+[displayCategory]
 categoryFilter = "__fromURL__"
 includeSubcategories = 1
 postsPerPage = 1
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 
-[showPost]
+[displayPost]
 ==
-{% component 'listPosts' %}
-{% component 'showPost' %}
+{% component 'displayCategory' %}
+{% component 'displayPost' %}
