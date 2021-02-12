@@ -1,0 +1,8 @@
+{% set posts = __SELF__.posts %}
+
+{% partial __SELF__ ~ "::postslist" posts = posts %}
+<div class="row">
+    <div class="col-12 pagination">
+        {{posts.links("pagination::bootstrap-4")|raw}}
+    </div>
+</div>

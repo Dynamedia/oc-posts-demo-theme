@@ -4,14 +4,88 @@ author: "Rob Ballantyne (Dynamedia)"
 homepage: "https://dynamedia.uk"
 code: "postsdemo"
 form:
-    fields:
-        site_brand:
-            label: Site Brand
-            comment: The brand
-            default: Dynamedia
-        site_name:
-            label: Site name
-            comment: The website name
-            default: Dynamedia Posts Plugin Demo
-        googleanalytics_id:
-            label: 'Google Analytics ID'
+    tabs:
+        fields:
+            site_brand:
+                tab: Detail
+                label: Site Brand
+                comment: The brand
+                default: Dynamedia
+            site_name:
+                tab: Detail
+                label: Site name
+                comment: The website name
+                default: Dynamedia Posts Plugin Demo
+            googleanalytics_id:
+                tab: Detail
+                label: 'Google Analytics ID'
+
+            images:
+                tab: Images
+                type: nestedform
+                usePanelStyles: false
+                form:
+                    tabs:
+                        fields:
+                            banner:
+                                tab: Banner Image
+                                type: nestedform
+                                usePanelStyles: false
+                                form:
+                                    secondaryTabs:
+                                        fields:
+                                            default:
+                                                tab: Default
+                                                type: mediafinder
+                                                mode: image
+                                                imageHeight: 260
+                                                imageWidth: 260
+
+                                            alt:
+                                                tab: Default
+                                                label: Image Alt Text
+                                            class:
+                                                tab: Default
+                                                label: Image CSS Class
+                                            responsive:
+                                                tab: Responsive
+                                                type: repeater
+                                                form:
+                                                    fields:
+                                                        image:
+                                                            type: mediafinder
+                                                            mode: image
+                                                            imageHeight: 260
+                                                            imageWidth: 260
+                                                        media_query:
+                                                            span: left
+                                                            label: Media Query
+                                                            type: dropdown
+                                                            options:
+                                                                max-width: Max Width
+                                                                min-width: Min Width
+                                                        screen_width:
+                                                            span: right
+                                                            label: Screen Width
+                                                            type: number
+                            social:
+                                tab: Social Images
+                                type: nestedform
+                                usePanelStyles: false
+                                form:
+                                    secondaryTabs:
+                                        fields:
+                                            facebook:
+                                                tab: Facebook
+                                                type: mediafinder
+                                                mode: image
+                                                imageHeight: 260
+                                                imageWidth: 260
+                                                comment: Social sharing image for Facebook
+                                            twitter:
+                                                tab: Twitter
+                                                type: mediafinder
+                                                mode: image
+                                                imageHeight: 260
+                                                imageWidth: 260
+                                                comment: Social sharing image for Twitter

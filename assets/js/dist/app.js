@@ -12565,7 +12565,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			return checkDeferredModules();
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkmoneysite"] = self["webpackChunkmoneysite"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkoc_posts_demo"] = self["webpackChunkoc_posts_demo"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 		

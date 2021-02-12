@@ -25,77 +25,27 @@ code = "top-level-navigation"
 {% set pageTitle = page.title %}
 {% endif %}
 <body class="page-{{ pageId }} layout-{{ this.layout.id }}">
-{% partial "site/mobile-nav" %}
-{% partial "site/top-nav" %}
-<div class="row">
-    <div class="col m12 l9">
-        <div class="row">
-            <div class="col s12 m12">
-                {% partial 'site/page-hero' %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">           
-                {% page %}
-            </div>
-        </div>
 
-        </div>
-        <div class="col s12 l3">
-            <div class="row">
-                <div class="col s12 m6 l12">
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">Welcome</span>
-                            <p>Hello and welcome to the demo theme for the October CMS Posts plugin. This is a very simple theme
-                            based on the Materialize CSS framework. There is nothing fancy here but you will see how to integrate the plugin.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
+{% component 'topLevelNavigation' %}
 
+<main role="main">
+    {% placeholder jumbotron %}
 
-
-            <div class="col s12 m6 l12">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Contextual Posts</span>
-                        <p>Loop containing recommended and contextual posts.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l12">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Generic Posts</span>
-                        <p>Loop containing new or top posts (non contextual)</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        {% page %}
     </div>
-</div>
+
+</main>
+
+<footer class="container">
+    <p>&copy; Company 2017-2021</p>
+</footer>
 
 
-
-
-
-{% partial "site/footer" %}
 
 <!-- Scripts -->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script src="{{ [
             '@framework',
             '@framework.extras',

@@ -3,10 +3,54 @@ url = "/"
 layout = "default"
 is_hidden = 0
 
-[displayCategory]
-noPostsMessage = "rainlab.blog::lang.settings.posts_no_posts_default"
+[listPosts featuredPosts]
+postIds = "1,2"
+postsLimit = 2
+postsPerPage = 2
+noPostsMessage = "rainlab.posts::lang.settings.posts_no_posts_default"
+
+[listPosts latestPosts]
+postsLimit = 5
+postsPerPage = 5
+noPostsMessage = "rainlab.posts::lang.settings.posts_no_posts_default"
 ==
+{% put jumbotron %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <picture class="{{this.theme.images.banner.class}}">
+                    {% for entry in this.theme.images.banner.responsive %}
+                        {% if entry.image and entry.screen_width %}
+                            <source srcset="{{entry.image|media}}" media="({{entry.media_query}}: {{entry.screen_width}}px)">
+                        {% endif %}
+                    {% endfor %}
+                    {% if this.theme.images.banner.default %}
+                        <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
+                    {% endif %}
+                </picture>
+            </div>
+            <div class="col-12 col-md-8">
+                <h1 class="display-3">October CMS Posts Plugin</h1>
+                <p>This is a simple Bootstrap 4 template with examples to help you set up the Posts plugin.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endput %}
+
+
 <div class="content">
-    <h2>Latest Posts</h2>
-    {% component 'displayCategory' %}
+    <h2>Two Featured Posts</h2>
+    <div class="row">
+        {% component 'featuredPosts' %}
+    </div>
+
+    <h2 class="mt-4">Five of the latest posts</h2>
+    <div class="row">
+        {% component 'latestPosts' %}
+    </div>
+    <p class="text-right"><a href="/latest">All Posts</a></p>
 </div>

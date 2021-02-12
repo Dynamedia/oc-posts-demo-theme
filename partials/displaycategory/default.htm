@@ -1,0 +1,105 @@
+{% set category = __SELF__.category %}
+{% set posts = __SELF__.posts %}
+
+{% put jumbotron %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <picture class="{{ category.images.banner.class }}">
+                    {% for entry in category.images.banner.responsive %}
+                    {% if entry.image and entry.screen_width %}
+                    <source srcset="{{ entry.image|media }}" media="({{ entry.media_query }}: {{ entry.screen_width }}px)">
+                    {% endif %}
+                    {% endfor %}
+                    {% if category.images.banner.default %}
+                    <img src="{{ category.images.banner.default | media }}" alt="{{ category.images.banner.alt }}"/>
+                    {% endif %}
+                </picture>
+            </div>
+            <div class="col-12 col-md-8">
+                <h1 class="display-3">{{ category.name }}</h1>
+                <p>{{ category.excerpt }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endput %}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12">
+            {% if contents|length > 0 %}
+                <ul class="list-group contents">
+                    {% for section in contents %}
+                    <li class="list-group-item"><a href="{{ section.url }}">{{ section.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% for entry in post.getPage %}
+                {% if entry._group == 'section' %}
+                    {% if entry.section.heading %}
+                        <h2 id="{{entry.sId}}">{{ entry.section.heading }}</h2>
+                    {% endif %}
+
+                    {# The plugin provides several defaults for image positioning #}
+                    {# --- IMAGE ABOVE --- #}
+                    {% if entry.section.image.default and entry.section.image.image_style == 'full-above' %}
+                        {% partial __SELF__ ~ "::image"
+                            image = entry.section.image.default
+                            srcset = entry.section.image.srcset
+                            alt = entry.section.image.alt
+                            class = "section-image above " ~ entry.section.image.class
+                        %}
+                    {% endif %}
+
+                    {# --- IMAGE INLINE LEFT --- #}
+                    {% if entry.section.image.default and entry.section.image.image_style == 'inline-left' %}
+                        {% partial __SELF__ ~ "::image"
+                            image = entry.section.image.default
+                            srcset = entry.section.image.srcset
+                            alt = entry.section.image.alt
+                            class = "section-image left " ~ entry.section.image.class
+                        %}
+                    {% endif %}
+
+                    {# --- IMAGE INLINE RIGHT --- #}
+                    {% if entry.section.image.default and entry.section.image.image_style == 'inline-right' %}
+                        {% partial __SELF__ ~ "::image"
+                            image = entry.section.image.default
+                            srcset = entry.section.image.srcset
+                            alt = entry.section.image.alt
+                            class = "section-image right " ~ entry.section.image.class
+                        %}
+                    {% endif %}
+
+                    {{ entry.section.content | md }}
+
+                    {# --- IMAGE BELOW --- #}
+                    {% if entry.section.image.default and entry.section.image.image_style == 'full-below' %}
+                        {% partial __SELF__ ~ "::image"
+                            image = entry.section.image.default
+                            srcset = entry.section.image.srcset
+                            alt = entry.section.image.alt
+                            class = "section-image below " ~ entry.section.image.class
+                        %}
+                    {% endif %}
+
+                {% elseif entry._group == 'html' %}
+                    {{ entry.body | raw }}
+                {% endif %}
+
+            {% endfor %}
+
+            {% if post.getPageCount > 1 %}
+                {{ paginator.links("pagination::bootstrap-4") | raw }}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
