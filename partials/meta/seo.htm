@@ -1,3 +1,27 @@
+{% placeholder page_title default %}
+    {% if this.page.meta_title %}
+        <title>{{ this.page.meta_title }} | {{ this.theme.site_brand }}</title>
+    {% else %}
+        <title>{{ this.page.title }} | {{ this.theme.site_brand }}</title>
+    {% endif %}
+{% endplaceholder %}
+
+{% placeholder page_description default %}
+    {% if this.page.meta_description %}
+        <meta name="description" content="{{ this.page.meta_description }}">
+    {% else %}
+        <meta name="description" content="{{ this.theme.site_description }}">
+    {% endif %}
+{% endplaceholder %}
+
+
+{% placeholder opengraph default %}
+    <meta property="og:title" content="{{ this.page.meta_title ? this.page.meta_title : this.page.title }}" />
+    <meta property="og:url" content="{{ this.page.baseFilename | page }}" />
+    <meta property="og:description" content="{{ this.page.meta_description ? this.page.meta_description : this.theme.site_description }}" />
+    <meta property="og:image" content="{{ this.theme.images.social.facebook | media }}" />
+{% endplaceholder %}
+
 {% if this.theme.googleanalytics_id is not empty %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ this.theme.googleanalytics_id }}"></script>

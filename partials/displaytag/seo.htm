@@ -1,0 +1,58 @@
+{### PAGE TITLE ###}
+{% if tag.seo.title %}
+    {% set page_title = tag.seo.title %}
+{% else %}
+    {% set page_title = tag.name %}
+{% endif %}
+
+{### PAGE DESCRIPTION ###}
+{% if tag.seo.description %}
+    {% set page_description = tag.seo.description %}
+{% elseif tag.excerpt %}
+    {% set page_description = tag.excerpt %}
+{% elseif this.page.meta_description %}
+    {% set page_description = this.page.meta_description %}
+{% else %}
+    {% set page_description = this.theme.site_description %}
+{% endif %}
+
+{### OPENGRAPH TITLE ###}
+{% if tag.seo.opengraph_title %}
+    {% set og_title = tag.seo.opengraph_title %}
+{% else %}
+    {% set og_title = page_title %}
+{% endif %}
+
+{### OPENGRAPH DESCRIPTION ###}
+{% if tag.seo.opengraph_title %}
+    {% set og_description = tag.seo.opengraph_description %}
+{% else %}
+    {% set og_description = page_description %}
+{% endif %}
+
+{### OPENGRAPH IMAGE ###}
+{% if tag.images.social.facebook %}
+    {% set og_image = tag.images.social.facebook %}
+{% elseif tag.images.default %}
+    {% set og_image = tag.images.default %}
+{% elseif this.theme.images.social.facebook %}
+    {% set og_image = this.theme.images.social.facebook %}
+{% endif %}
+
+
+{% put page_title %}
+    <title>{{ page_title | striptags }} | {{ this.theme.site_brand }}</title>
+{% endput %}
+
+{% put page_description %}
+    <meta name="description" content="{{ page_description | striptags }}">
+{% endput %}
+
+{% put opengraph %}
+    <meta property="og:title" content="{{ og_title | striptags }}" />
+    <meta property="og:url" content="{{ tag.url }}" />
+    <meta property="og:description" content="{{ og_description | striptags }}" />
+    {% if og_image %}
+        <meta property="og:image" content="{{ og_image | media }}" />
+    {% endif %}
+{% endput %}

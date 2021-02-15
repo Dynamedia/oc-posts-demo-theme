@@ -10,12 +10,17 @@ form:
                 tab: Detail
                 label: Site Brand
                 comment: The brand
-                default: Dynamedia
+                default: Dynamedia Posts
             site_name:
                 tab: Detail
-                label: Site name
+                label: Site Name
                 comment: The website name
                 default: Dynamedia Posts Plugin Demo
+            site_description:
+                tab: Detail
+                label: Site Description
+                comment: The website name
+                default: October CMS Dynamedia Posts plugin demo theme
             googleanalytics_id:
                 tab: Detail
                 label: 'Google Analytics ID'

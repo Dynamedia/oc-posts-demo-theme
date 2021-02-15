@@ -1,6 +1,8 @@
 {% set category = __SELF__.category %}
 {% set posts = __SELF__.posts %}
 
+{% partial __SELF__ ~ "::seo" category = category %}
+
 {% put jumbotron %}
 
 <div class="jumbotron">
@@ -40,9 +42,9 @@
                     {# The plugin provides several defaults for image positioning #}
                     {# --- IMAGE ABOVE --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
-                        {% partial __SELF__ ~ "::image"
+                        {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image above " ~ item.block.image.class
                         %}
@@ -50,9 +52,9 @@
 
                     {# --- IMAGE INLINE LEFT --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
-                        {% partial __SELF__ ~ "::image"
+                        {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image left " ~ item.block.image.class
                         %}
@@ -60,9 +62,9 @@
 
                     {# --- IMAGE INLINE RIGHT --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
-                        {% partial __SELF__ ~ "::image"
+                        {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image right " ~ item.block.image.class
                         %}
@@ -72,16 +74,32 @@
 
                     {# --- IMAGE BELOW --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
-                        {% partial __SELF__ ~ "::image"
+                        {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image below " ~ item.block.image.class
                         %}
                     {% endif %}
 
-                {% elseif item._group == 'html' %}
-                    {{ item.body | raw }}
+                    {% elseif item._group == 'html' %}
+                        {{ item.block.content | raw }}
+
+                    {% elseif item._group == 'image' %}
+                        {% if item.block.default %}
+                            {% partial __SELF__ ~ "::helpers/image"
+                                image = item.block.default
+                                responsive = item.block.responsive
+                                alt = item.block.alt
+                                class = "post-body " ~ item.block.class
+                            %}
+                        {% endif %}
+
+                    {% elseif item._group == 'cms_content' %}
+                        {% content item.block.cms_content %}
+
+                    {% elseif item._group == 'cms_partial' %}
+                        {% partial item.block.cms_partial %}
                 {% endif %}
 
             {% endfor %}

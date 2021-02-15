@@ -11,14 +11,10 @@
                     %}
                 {% endif %}
             <div class="card-body">
-            <h4 class="card-title">{{ post.title }}</h4>
                 <p class="card-text">{{ post.excerpt | raw }}</p>
             </div>
             <div class="card-footer">
                 <a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a>
-                {% if post.tags.first %}
-                <a href="{{ post.tags.first.url }}" class="card-link">#{{ post.tags.first.name }}</a>
-                {% endif %}
                 <a href="{{ post.url }}" class="card-link">Read More...</a>
             </div>
         </div>
@@ -28,7 +24,7 @@
 
     <div class="row">
         <div class="col-12 pagination">
-            {{ posts.links("pagination::bootstrap-4")| raw }}
+            {{ posts.appends({'q':__SELF__.searchQuery}).links("pagination::bootstrap-4")| raw }}
         </div>
     </div>
 {% else %}

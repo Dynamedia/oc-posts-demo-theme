@@ -7,12 +7,14 @@ is_hidden = 0
 postIds = "1,2"
 postsLimit = 2
 postsPerPage = 2
-noPostsMessage = "rainlab.posts::lang.settings.posts_no_posts_default"
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
 
 [listPosts latestPosts]
 postsLimit = 5
 postsPerPage = 5
-noPostsMessage = "rainlab.posts::lang.settings.posts_no_posts_default"
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
 ==
 {% put jumbotron %}
 
@@ -45,13 +47,13 @@ noPostsMessage = "rainlab.posts::lang.settings.posts_no_posts_default"
 <div class="content">
     <div class="row">
         <div class="col-12">
-    <h2 class="mt-4">Two Featured Posts</h2>
-        {% component 'featuredPosts' %}
+            <h2 class="mt-4">Two Featured Posts</h2>
+            {% component 'featuredPosts' %}
 
-    <h2 class="mt-4">Five of the latest posts</h2>
-        {% component 'latestPosts' %}
+            <h2 class="mt-4">Five of the latest posts</h2>
+            {% component 'latestPosts' %}
     
-    <p class="text-right"><a href="/latest">All Posts</a></p>
-    </div>
+            <p class="text-right"><a href="/latest">All Posts</a></p>
+        </div>
     </div>
 </div>

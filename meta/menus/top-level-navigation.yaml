@@ -1,9 +1,11 @@
 items:
     -
-        title: Placeholder
-        type: url
-        url: /
+        title: Uncategorised
+        nesting: 0
+        type: posts-category
         code: ''
+        reference: '1'
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''

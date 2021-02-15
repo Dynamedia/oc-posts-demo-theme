@@ -2,6 +2,8 @@
 {% set paginator = __SELF__.getPaginator %}
 {% set contents = __SELF__.getContentsList %}
 
+{% partial __SELF__ ~ "::seo" post = post %}
+
 {% put jumbotron %}
 
 <div class="jumbotron">
@@ -10,9 +12,9 @@
             <div class="col-12 col-md-4">
                 <picture class="{{ post.images.banner.class }}">
                     {% for item in post.images.banner.responsive %}
-                    {% if item.image and item.screen_width %}
-                    <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
-                    {% endif %}
+                        {% if item.image and item.screen_width %}
+                            <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
+                        {% endif %}
                     {% endfor %}
                     {% if post.images.banner.default %}
                     <img src="{{ post.images.banner.default | media }}" alt="{{ post.images.banner.alt }}"/>
@@ -22,6 +24,15 @@
             <div class="col-12 col-md-8">
                 <h1 class="display-3">{{ post.title }}</h1>
                 <p>{{ post.excerpt | raw  }}</p>
+                {% if post.primary_category %}
+                    <p>Category: <a class="badge badge-secondary" href="{{ post.primary_category.url }}">{{ post.primary_category.name }}</a></p>
+                {% endif %}
+                {% if post.tags | length %}
+                <p>Tags:
+                    {% for tag in post.tags %}
+                        <a class="badge badge-secondary" href="{{ tag.url }}">#{{ tag.name }}</a>
+                    {% endfor %}</p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -68,7 +79,7 @@
                     {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
                         {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image above " ~ item.block.image.class
                         %}
@@ -78,7 +89,7 @@
                     {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
                         {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image left " ~ item.block.image.class
                         %}
@@ -88,7 +99,7 @@
                     {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
                         {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image right " ~ item.block.image.class
                         %}
@@ -100,7 +111,7 @@
                     {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
                         {% partial __SELF__ ~ "::helpers/image"
                             image = item.block.image.default
-                            srcset = item.block.image.srcset
+                            responsive = item.block.image.responsive
                             alt = item.block.image.alt
                             class = "section-image below " ~ item.block.image.class
                         %}
@@ -108,6 +119,22 @@
 
                 {% elseif item._group == 'html' %}
                     {{ item.block.content | raw }}
+
+                {% elseif item._group == 'image' %}
+                    {% if item.block.default %}
+                        {% partial __SELF__ ~ "::helpers/image"
+                            image = item.block.default
+                            responsive = item.block.responsive
+                            alt = item.block.alt
+                            class = "post-body " ~ item.block.class
+                        %}
+                    {% endif %}
+
+                {% elseif item._group == 'cms_content' %}
+                    {% content item.block.cms_content %}
+
+                {% elseif item._group == 'cms_partial' %}
+                    {% partial item.block.cms_partial %}
                 {% endif %}
 
             {% endfor %}
