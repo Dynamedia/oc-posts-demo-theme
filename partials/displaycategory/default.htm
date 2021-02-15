@@ -9,8 +9,8 @@
             <div class="col-12 col-md-4">
                 <picture class="{{ category.images.banner.class }}">
                     {% for entry in category.images.banner.responsive %}
-                    {% if entry.image and entry.screen_width %}
-                    <source srcset="{{ entry.image|media }}" media="({{ entry.media_query }}: {{ entry.screen_width }}px)">
+                    {% if item.image and item.screen_width %}
+                    <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
                     {% endif %}
                     {% endfor %}
                     {% if category.images.banner.default %}
@@ -20,7 +20,7 @@
             </div>
             <div class="col-12 col-md-8">
                 <h1 class="display-3">{{ category.name }}</h1>
-                <p>{{ category.excerpt }}</p>
+                <p>{{ category.excerpt | raw }}</p>
             </div>
         </div>
     </div>
@@ -30,74 +30,70 @@
 
 <div class="container">
     <div class="row">
-        
         <div class="col-12">
-            {% if contents|length > 0 %}
-                <ul class="list-group contents">
-                    {% for section in contents %}
-                    <li class="list-group-item"><a href="{{ section.url }}">{{ section.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            {% for entry in post.getPage %}
-                {% if entry._group == 'section' %}
-                    {% if entry.section.heading %}
-                        <h2 id="{{entry.sId}}">{{ entry.section.heading }}</h2>
+            {% for item in category.body %}
+                {% if item._group == 'section' %}
+                    {% if item.block.heading %}
+                        <h2 id="{{ item.block.sId }}">{{ item.block.heading }}</h2>
                     {% endif %}
 
                     {# The plugin provides several defaults for image positioning #}
                     {# --- IMAGE ABOVE --- #}
-                    {% if entry.section.image.default and entry.section.image.image_style == 'full-above' %}
+                    {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
                         {% partial __SELF__ ~ "::image"
-                            image = entry.section.image.default
-                            srcset = entry.section.image.srcset
-                            alt = entry.section.image.alt
-                            class = "section-image above " ~ entry.section.image.class
+                            image = item.block.image.default
+                            srcset = item.block.image.srcset
+                            alt = item.block.image.alt
+                            class = "section-image above " ~ item.block.image.class
                         %}
                     {% endif %}
 
                     {# --- IMAGE INLINE LEFT --- #}
-                    {% if entry.section.image.default and entry.section.image.image_style == 'inline-left' %}
+                    {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
                         {% partial __SELF__ ~ "::image"
-                            image = entry.section.image.default
-                            srcset = entry.section.image.srcset
-                            alt = entry.section.image.alt
-                            class = "section-image left " ~ entry.section.image.class
+                            image = item.block.image.default
+                            srcset = item.block.image.srcset
+                            alt = item.block.image.alt
+                            class = "section-image left " ~ item.block.image.class
                         %}
                     {% endif %}
 
                     {# --- IMAGE INLINE RIGHT --- #}
-                    {% if entry.section.image.default and entry.section.image.image_style == 'inline-right' %}
+                    {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
                         {% partial __SELF__ ~ "::image"
-                            image = entry.section.image.default
-                            srcset = entry.section.image.srcset
-                            alt = entry.section.image.alt
-                            class = "section-image right " ~ entry.section.image.class
+                            image = item.block.image.default
+                            srcset = item.block.image.srcset
+                            alt = item.block.image.alt
+                            class = "section-image right " ~ item.block.image.class
                         %}
                     {% endif %}
 
-                    {{ entry.section.content | md }}
+                    {{ item.block.content | raw }}
 
                     {# --- IMAGE BELOW --- #}
-                    {% if entry.section.image.default and entry.section.image.image_style == 'full-below' %}
+                    {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
                         {% partial __SELF__ ~ "::image"
-                            image = entry.section.image.default
-                            srcset = entry.section.image.srcset
-                            alt = entry.section.image.alt
-                            class = "section-image below " ~ entry.section.image.class
+                            image = item.block.image.default
+                            srcset = item.block.image.srcset
+                            alt = item.block.image.alt
+                            class = "section-image below " ~ item.block.image.class
                         %}
                     {% endif %}
 
-                {% elseif entry._group == 'html' %}
-                    {{ entry.body | raw }}
+                {% elseif item._group == 'html' %}
+                    {{ item.body | raw }}
                 {% endif %}
 
             {% endfor %}
+        </div>
+    </div>
+</div>
 
-            {% if post.getPageCount > 1 %}
-                {{ paginator.links("pagination::bootstrap-4") | raw }}
-            {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="mb-4 mt-4">Posted in {{ category.name }}</h4>
+            {% partial __SELF__ ~ "::postslist" posts = posts %}
         </div>
     </div>
 </div>

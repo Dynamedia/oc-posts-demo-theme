@@ -43,14 +43,15 @@ noPostsMessage = "rainlab.posts::lang.settings.posts_no_posts_default"
 
 
 <div class="content">
-    <h2>Two Featured Posts</h2>
     <div class="row">
+        <div class="col-12">
+    <h2 class="mt-4">Two Featured Posts</h2>
         {% component 'featuredPosts' %}
-    </div>
 
     <h2 class="mt-4">Five of the latest posts</h2>
-    <div class="row">
         {% component 'latestPosts' %}
-    </div>
+    
     <p class="text-right"><a href="/latest">All Posts</a></p>
+    </div>
+    </div>
 </div>

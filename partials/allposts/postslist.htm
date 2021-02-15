@@ -11,7 +11,7 @@
                 %}
             {% endif %}
         <div class="card-body">
-            <p class="card-text">{{ post.excerpt }}</p>
+            <p class="card-text">{{ post.excerpt | raw }}</p>
         </div>
         <div class="card-footer">
             <a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a>
@@ -21,3 +21,9 @@
 
 {% endfor %}
 </div>
+
+<div class="row">
+    <div class="col-12 pagination">
+        {{ posts.links("pagination::bootstrap-4")| raw }}
+    </div>
+</div

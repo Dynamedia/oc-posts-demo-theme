@@ -1,6 +1,5 @@
-{% set post = __SELF__.post %}
-{% set paginator = __SELF__.getPaginator %}
-{% set contents = __SELF__.getContentsList %}
+{% set tag = __SELF__.tag %}
+{% set posts = __SELF__.posts %}
 
 {% put jumbotron %}
 
@@ -8,20 +7,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4">
-                <picture class="{{ post.images.banner.class }}">
-                    {% for item in post.images.banner.responsive %}
+                <picture class="{{ tag.images.banner.class }}">
+                    {% for entry in tag.images.banner.responsive %}
                     {% if item.image and item.screen_width %}
                     <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
                     {% endif %}
                     {% endfor %}
-                    {% if post.images.banner.default %}
-                    <img src="{{ post.images.banner.default | media }}" alt="{{ post.images.banner.alt }}"/>
+                    {% if tag.images.banner.default %}
+                    <img src="{{ tag.images.banner.default | media }}" alt="{{ tag.images.banner.alt }}"/>
                     {% endif %}
                 </picture>
             </div>
             <div class="col-12 col-md-8">
-                <h1 class="display-3">{{ post.title }}</h1>
-                <p>{{ post.excerpt | raw  }}</p>
+                <h1 class="display-3">{{ tag.name }}</h1>
+                <p>{{ tag.excerpt | raw }}</p>
             </div>
         </div>
     </div>
@@ -31,33 +30,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 mb-4 post-info">
-            <small>By {{ post.user.first_name }} {{ post.user.last_name }},
-                {% if post.is_published %}
-                on {{ post.published_at | date('d-m-Y') }}
-                {% endif %}
-                {% if post.is_published and post.updated_at > post.published_at %}
-                <br>Last updated {{ post.updated_at | date('d-m-Y') }}
-                {% endif %}
-
-                {### INFO FOR MULTI-PAGE POSTS ###}
-                {% if post.getPageCount > 1 %}
-                <p>Page {{ post.getRequestedPage }} of {{ post.getPageCount }}</p>
-                {% endif %}
-            </small>
-        </div>
-
-
         <div class="col-12">
-            {% if contents|length > 0 %}
-                <ul class="list-group contents">
-                    {% for section in contents %}
-                    <li class="list-group-item"><a href="{{ section.url }}">{{ section.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            {% for item in post.getPage %}
+            {% for item in tag.body %}
                 {% if item._group == 'section' %}
                     {% if item.block.heading %}
                         <h2 id="{{ item.block.sId }}">{{ item.block.heading }}</h2>
@@ -66,7 +40,7 @@
                     {# The plugin provides several defaults for image positioning #}
                     {# --- IMAGE ABOVE --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial __SELF__ ~ "::image"
                             image = item.block.image.default
                             srcset = item.block.image.srcset
                             alt = item.block.image.alt
@@ -76,7 +50,7 @@
 
                     {# --- IMAGE INLINE LEFT --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial __SELF__ ~ "::image"
                             image = item.block.image.default
                             srcset = item.block.image.srcset
                             alt = item.block.image.alt
@@ -86,7 +60,7 @@
 
                     {# --- IMAGE INLINE RIGHT --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial __SELF__ ~ "::image"
                             image = item.block.image.default
                             srcset = item.block.image.srcset
                             alt = item.block.image.alt
@@ -98,7 +72,7 @@
 
                     {# --- IMAGE BELOW --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial __SELF__ ~ "::image"
                             image = item.block.image.default
                             srcset = item.block.image.srcset
                             alt = item.block.image.alt
@@ -107,14 +81,19 @@
                     {% endif %}
 
                 {% elseif item._group == 'html' %}
-                    {{ item.block.content | raw }}
+                    {{ item.body | raw }}
                 {% endif %}
 
             {% endfor %}
+        </div>
+    </div>
+</div>
 
-            {% if post.getPageCount > 1 %}
-                {{ paginator.links("pagination::bootstrap-4") | raw }}
-            {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="mb-4 mt-4">Posted in {{ tag.name }}</h4>
+            {% partial __SELF__ ~ "::postslist" posts = posts %}
         </div>
     </div>
 </div>

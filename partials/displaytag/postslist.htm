@@ -23,5 +23,8 @@
 {% endfor %}
 </div>
 
-
-{{ posts.links("pagination::bootstrap-4") | raw }}
+<div class="row">
+    <div class="col-12 pagination">
+        {{ posts.links("pagination::bootstrap-4") | raw }}
+    </div>
+</div
