@@ -5,6 +5,10 @@ body {
 
 .jumbotron img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .pagination {
@@ -17,85 +21,19 @@ body {
 .card img {
   height: 300px;
   width: 100%;
-}
-
-.fixed-nav-left {
-  position: fixed;
-  height: 100%;
-  min-height: 100%;
-}
-
-#index-banner {
-  margin-top: 7px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  height: 400px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 2px;
-}
-#index-banner h1 {
-  font-size: 1.8rem;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  opacity: 0.5;
-  padding: 10px;
-  border-radius: 2px;
-  margin: 0;
-}
-
-.contents {
-  min-width: 200px;
-  max-width: 40%;
-  float: right;
-  padding: 0 0 10px 10px;
-  overflow: hidden;
-}
-.contents .collection .collection-item {
-  font-size: 1.1rem;
-  padding: 10px 5px;
-}
-
-article {
-  font-size: 1.3rem;
-}
-article.dynamedia.blog .post-info {
-  padding: 5px;
-  background-color: #fafafa;
-}
-article.dynamedia.blog img.section-image {
-  border-radius: 5px;
-}
-
-.card {
-  overflow: hidden;
-}
-.card .card-image {
-  display: flex;
-  align-content: end;
-  height: 300px;
-}
-.card .card-image img {
   -o-object-fit: cover;
      object-fit: cover;
-}
-.card .card-image .card-title {
-  background-color: #000;
-  opacity: 0.5;
-  width: 100%;
-}
-.card .card-image .card-content {
-  overflow: hidden;
-  word-wrap: anywhere;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .dynamedia.blog .section-image.above img, .dynamedia.blog .section-image.below img, .dynamedia.blog .post-image.banner img {
   width: 100%;
-  max-height: 300px;
+  max-height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .dynamedia.blog .section-image.left img {
@@ -104,6 +42,10 @@ article.dynamedia.blog img.section-image {
   max-width: 40%;
   margin-right: 10px;
   margin-bottom: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .dynamedia.blog .section-image.right img {
@@ -112,106 +54,8 @@ article.dynamedia.blog img.section-image {
   max-width: 40%;
   margin-left: 10px;
   margin-bottom: 10px;
-}
-
-/* stylelint-disable selector-list-comma-newline-after */
-.blog-header {
-  line-height: 1;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: 2.25rem;
-}
-
-.blog-header-logo:hover {
-  text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-}
-
-.display-4 {
-  font-size: 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .display-4 {
-    font-size: 3rem;
-  }
-}
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-  display: flex;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.nav-scroller .nav-link {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-size: 0.875rem;
-}
-
-.card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-}
-
-.flex-auto {
-  flex: 0 0 auto;
-}
-
-.h-250 {
-  height: 250px;
-}
-
-@media (min-width: 768px) {
-  .h-md-250 {
-    height: 250px;
-  }
-}
-/*
- * Blog posts
- */
-.blog-post {
-  margin-bottom: 4rem;
-}
-
-.blog-post-title {
-  margin-bottom: 0.25rem;
-  font-size: 2.5rem;
-}
-
-.blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #999;
-}
-
-/*
- * Footer
- */
-.blog-footer {
-  padding: 2.5rem 0;
-  color: #999;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: 0.05rem solid #e5e5e5;
-}
-
-.blog-footer p:last-child {
-  margin-bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
