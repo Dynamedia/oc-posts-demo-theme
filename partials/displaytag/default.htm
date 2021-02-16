@@ -21,8 +21,12 @@
                 </picture>
             </div>
             <div class="col-12 col-md-8">
-                <h1 class="display-3">{{ tag.name }}</h1>
-                <p>{{ tag.excerpt | raw }}</p>
+                <h1 class="display-3">#{{ tag.name }}</h1>
+                {% if tag.excerpt %}
+                    <p>{{ tag.excerpt | raw }}</p>
+                {% else %}
+                    <p>Posts tagged '{{ tag.name }}'</p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -109,7 +113,6 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h4 class="mb-4 mt-4">Posted in {{ tag.name }}</h4>
             {% partial __SELF__ ~ "::postslist" posts = posts %}
         </div>
     </div>

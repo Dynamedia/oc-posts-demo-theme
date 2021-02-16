@@ -3,6 +3,7 @@ body {
   padding-top: 3.5rem;
 }
 .jumbotron {
+  background-color: rgba(0,0,0,0.1);
   img {
     width:100%;
     object-fit: cover;
@@ -18,11 +19,15 @@ body {
 }
 
 .card {
+  overflow: hidden;
   img {
-    height: 300px;
+    max-height: 300px;
     width: 100%;
     object-fit: cover;
     object-position: center;
+  }
+  .card-footer {
+    background-color: rgba(0,0,0,0.1);
   }
 }
 
