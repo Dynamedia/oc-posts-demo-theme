@@ -3,9 +3,6 @@ body {
   padding-top: 3.5rem;
 }
 
-.jumbotron {
-  background-color: rgba(0, 0, 0, 0.1);
-}
 .jumbotron img {
   width: 100%;
   -o-object-fit: cover;
@@ -32,20 +29,19 @@ body {
   -o-object-position: center;
      object-position: center;
 }
-.card .card-footer {
-  background-color: rgba(0, 0, 0, 0.1);
-}
 
-.dynamedia.blog .section-image.above img, .dynamedia.blog .section-image.below img, .dynamedia.blog .post-image.banner img {
+
+.post-body img, .section-image.above img,.section-image.below img, .post-image.banner img {
   width: 100%;
   max-height: 400px;
+  margin: 10px auto;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
 
-.dynamedia.blog .section-image.left img {
+.section-image.left img {
   float: left;
   width: 400px;
   max-width: 40%;
@@ -57,7 +53,7 @@ body {
      object-position: center;
 }
 
-.dynamedia.blog .section-image.right img {
+.section-image.right img {
   float: right;
   width: 400px;
   max-width: 40%;

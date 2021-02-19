@@ -14,7 +14,7 @@ sortOrder = "published_at desc"
 postsLimit = 5
 postsPerPage = 5
 noPostsMessage = "No posts found"
-sortOrder = "__random__"
+sortOrder = "published_at desc"
 ==
 {% put jumbotron %}
 
@@ -47,10 +47,10 @@ sortOrder = "__random__"
 <div class="content">
     <div class="row">
         <div class="col-12">
-            <h2 class="mt-4">Two Featured Posts</h2>
+            <h2 class="mt-4 mb-4">Two Featured Posts</h2>
             {% component 'featuredPosts' %}
 
-            <h2 class="mt-4">Five of the latest posts</h2>
+            <h2 class="mt-4 mb-4">Five of the latest posts</h2>
             {% component 'latestPosts' %}
     
             <p class="text-right"><a href="/latest">All Posts</a></p>
