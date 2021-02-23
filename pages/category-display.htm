@@ -1,5 +1,5 @@
-title = "Multi-Function Posts Page 4 Parents"
-url = "/:level-0/:parent-2/:parent-1/:parent-0/:slug"
+title = "Category Display Page"
+url = "/posts/:postsCategoryPath*"
 layout = "default"
 is_hidden = 0
 
@@ -7,8 +7,6 @@ is_hidden = 0
 includeSubcategories = 1
 postsPerPage = 11
 noPostsMessage = "No posts found"
-
-[displayPost]
 ==
 {% component 'displayCategory' %}
 {% component 'displayPost' %}
