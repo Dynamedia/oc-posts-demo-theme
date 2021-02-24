@@ -4,6 +4,14 @@ layout = "default"
 is_hidden = 0
 
 [displayPost]
+
+[listPosts featuredPosts]
+postIds = "1,2"
+postsLimit = 2
+postsPerPage = 2
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+
 ==
 {% component 'displayCategory' %}
 {% component 'displayPost' %}

@@ -1,4 +1,31 @@
 {% partial __SELF__ ~ "::layouts/default/jumbotron" post = post %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-4 post-info">
+            {% if post.is_published %}
+            <small>
+                By {{ post.user.first_name }} {{ post.user.last_name }},
+                on {{ post.published_at | date('d-m-Y') }}
+                {% if post.updated_at > post.published_at %}
+                <br>Last updated {{ post.updated_at | date('d-m-Y') }}
+                {% endif %}
+
+                {### INFO FOR MULTI-PAGE POSTS ###}
+                {% if post.getPageCount > 1 %}
+                <p>Page {{ post.getRequestedPage }} of {{ post.getPageCount }}</p>
+                {% endif %}
+            </small>
+            {% else %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                This <strong>post preview</strong> is only visible to creators and editors.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
