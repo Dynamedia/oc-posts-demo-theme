@@ -1,0 +1,18 @@
+{% partial __SELF__ ~ "::layouts/default/jumbotron" post = post %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-9">
+            {% partial __SELF__ ~ "::layouts/default/main"
+                post = post
+                contents = contents
+                paginator = paginator
+            %}
+        </div>
+        <div class="col-12 col-md-3">
+            {% partial __SELF__ ~ "::layouts/default/sidebar"
+                post = post
+            %}
+        </div>
+    </div>
+</div>

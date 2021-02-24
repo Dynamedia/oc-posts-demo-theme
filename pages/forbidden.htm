@@ -3,4 +3,29 @@ url = "/403"
 layout = "default"
 is_hidden = 0
 ==
-You do not have permission to view this page
+{% put jumbotron %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <picture class="{{this.theme.images.banner.class}}">
+                    {% for entry in this.theme.images.banner.responsive %}
+                    {% if entry.image and entry.screen_width %}
+                    <source srcset="{{entry.image|media}}" media="({{entry.media_query}}: {{entry.screen_width}}px)">
+                    {% endif %}
+                    {% endfor %}
+                    {% if this.theme.images.banner.default %}
+                    <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
+                    {% endif %}
+                </picture>
+            </div>
+            <div class="col-12 col-md-8">
+                <h1 class="display-3">Forbidden</h1>
+                <p>You do not have permission to view this page</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endput %}
