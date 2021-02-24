@@ -1,11 +1,18 @@
 items:
     -
-        title: Features
-        nesting: 0
-        type: posts-category
+        title: 'New menu item'
+        type: posts-all-posts
         code: ''
-        reference: '1'
-        replace: 0
+        replace: 1
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: second
+        type: posts-tag
+        code: ''
+        reference: '2'
         viewBag:
             isHidden: '0'
             cssClass: ''

@@ -22,19 +22,16 @@ body {
   overflow: hidden;
 }
 .card img {
-  max-height: 300px;
   width: 100%;
+  max-height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
-
-
-.post-body img, .section-image.above img,.section-image.below img, .post-image.banner img {
-  width: 100%;
-  max-height: 400px;
-  margin: 10px auto;
+.post-body img, .section-image.above img, .section-image.below img, .post-image.banner img {
+  display: block;
+  max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
