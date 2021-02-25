@@ -46,7 +46,7 @@
                     {# The plugin provides several defaults for image positioning #}
                     {# --- IMAGE ABOVE --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial "helpers/image"
                             image = item.block.image.default
                             responsive = item.block.image.responsive
                             alt = item.block.image.alt
@@ -56,7 +56,7 @@
 
                     {# --- IMAGE INLINE LEFT --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial "helpers/image"
                             image = item.block.image.default
                             responsive = item.block.image.responsive
                             alt = item.block.image.alt
@@ -66,7 +66,7 @@
 
                     {# --- IMAGE INLINE RIGHT --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial "helpers/image"
                             image = item.block.image.default
                             responsive = item.block.image.responsive
                             alt = item.block.image.alt
@@ -78,7 +78,7 @@
 
                     {# --- IMAGE BELOW --- #}
                     {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
-                        {% partial __SELF__ ~ "::helpers/image"
+                        {% partial "helpers/image"
                             image = item.block.image.default
                             responsive = item.block.image.responsive
                             alt = item.block.image.alt
@@ -91,7 +91,7 @@
 
                     {% elseif item._group == 'image' %}
                         {% if item.block.default %}
-                            {% partial __SELF__ ~ "::helpers/image"
+                            {% partial "helpers/image"
                                 image = item.block.default
                                 responsive = item.block.responsive
                                 alt = item.block.alt

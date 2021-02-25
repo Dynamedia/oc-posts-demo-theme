@@ -17,10 +17,12 @@ body {
   }
 }
 
+
 .card {
   overflow: hidden;
   img {
     width: 100%;
+    min-width: 18rem;
     max-height: 300px;
     object-fit: cover;
     object-position: center;
@@ -29,31 +31,41 @@ body {
 
   }
 }
+.sidebar {
+  margin-top: 20px;
+  @media (min-width: 992px) {
+    margin-top: 0;
+  }
+  .card {
+    min-width: 12rem;
+    width: 100%;
+  }
+}
 
 
+  .post-body img, .section-image.above img, .section-image.below img, .post-image.banner img  {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .section-image.left img {
+    float:left;
+    width: 400px;
+    max-width: 40%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .section-image.right img{
+    float:right;
+    width: 400px;
+    max-width: 40%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    object-position: center;
+  }
 
-.post-body img, .section-image.above img, .section-image.below img, .post-image.banner img  {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.section-image.left img {
-  float:left;
-  width: 400px;
-  max-width: 40%;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  object-fit: cover;
-  object-position: center;
-}
-.section-image.right img{
-  float:right;
-  width: 400px;
-  max-width: 40%;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  object-fit: cover;
-  object-position: center;
-}
