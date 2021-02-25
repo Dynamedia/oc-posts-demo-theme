@@ -33,8 +33,8 @@
 {### OPENGRAPH IMAGE ###}
 {% if tag.images.social.facebook %}
     {% set og_image = tag.images.social.facebook %}
-{% elseif tag.images.default %}
-    {% set og_image = tag.images.default %}
+{% elseif tag.images.banner.default %}
+    {% set og_image = tag.images.banner.default %}
 {% elseif this.theme.images.social.facebook %}
     {% set og_image = this.theme.images.social.facebook %}
 {% endif %}
@@ -57,7 +57,7 @@
 {% if tag.images.social.twitter %}
     {% set twitter_image = tag.images.social.twitter %}
 {% elseif tag.images.default %}
-    {% set twitter_image = tag.images.default %}
+    {% set twitter_image = tag.images.banner.default %}
 {% elseif this.theme.images.social.twitter %}
     {% set twitter_image = this.theme.images.social.twitter %}
 {% endif %}

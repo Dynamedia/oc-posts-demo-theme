@@ -33,8 +33,8 @@
 {### OPENGRAPH IMAGE ###}
 {% if post.images.social.facebook %}
     {% set og_image = post.images.social.facebook %}
-{% elseif post.images.default %}
-    {% set og_image = post.images.default %}
+{% elseif post.images.banner.default %}
+    {% set og_image = post.images.banner.default %}
 {% elseif this.theme.images.social.facebook %}
     {% set og_image = this.theme.images.social.facebook %}
 {% endif %}
@@ -56,8 +56,8 @@
 {### TWITTER IMAGE ###}
 {% if post.images.social.twitter %}
     {% set twitter_image = post.images.social.twitter %}
-{% elseif post.images.default %}
-    {% set twitter_image = post.images.default %}
+{% elseif post.images.banner.default %}
+    {% set twitter_image = post.images.banner.default %}
 {% elseif this.theme.images.social.twitter %}
     {% set twitter_image = this.theme.images.social.twitter %}
 {% endif %}
