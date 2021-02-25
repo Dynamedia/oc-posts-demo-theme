@@ -6,116 +6,115 @@
 {% put jumbotron %}
 
 <div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <picture class="{{ tag.images.banner.class }}">
-                    {% for entry in tag.images.banner.responsive %}
-                    {% if item.image and item.screen_width %}
-                    <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
-                    {% endif %}
-                    {% endfor %}
-                    {% if tag.images.banner.default %}
-                    <img src="{{ tag.images.banner.default | media }}" alt="{{ tag.images.banner.alt }}"/>
-                    {% endif %}
-                </picture>
-            </div>
-            <div class="col-12 col-md-8">
-                <h1 class="display-3">#{{ tag.name }}</h1>
-                {% if tag.excerpt %}
-                    <p>{{ tag.excerpt | raw }}</p>
-                {% else %}
-                    <p>Posts tagged '{{ tag.name }}'</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <picture class="{{ tag.images.banner.class }}">
+                {% for entry in tag.images.banner.responsive %}
+                {% if item.image and item.screen_width %}
+                <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
                 {% endif %}
-            </div>
+                {% endfor %}
+                {% if tag.images.banner.default %}
+                <img src="{{ tag.images.banner.default | media }}" alt="{{ tag.images.banner.alt }}"/>
+                {% endif %}
+            </picture>
+        </div>
+        <div class="col-12 col-md-6">
+            <h1 class="display-3">#{{ tag.name }}</h1>
+            {% if tag.excerpt %}
+                <p>{{ tag.excerpt | raw }}</p>
+            {% else %}
+                <p>Posts tagged '{{ tag.name }}'</p>
+            {% endif %}
         </div>
     </div>
+</div>
 </div>
 
 {% endput %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            {% for item in tag.body %}
-                {% if item._group == 'section' %}
-                    {% if item.block.heading %}
-                        <h2 id="{{ item.block.sId }}">{{ item.block.heading }}</h2>
-                    {% endif %}
+<div class="row">
+    <div class="col-12">
+        {% for item in tag.body %}
+            {% if item._group == 'section' %}
+                {% if item.block.heading %}
+                    <h2 id="{{ item.block.sId }}">{{ item.block.heading }}</h2>
+                {% endif %}
 
-                    {# The plugin provides several defaults for image positioning #}
-                    {# --- IMAGE ABOVE --- #}
-                    {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
-                        {% partial "helpers/image"
-                            image = item.block.image.default
-                            responsive = item.block.image.responsive
-                            alt = item.block.image.alt
-                            class = "section-image above " ~ item.block.image.class
-                        %}
-                    {% endif %}
+                {# The plugin provides several defaults for image positioning #}
+                {# --- IMAGE ABOVE --- #}
+                {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
+                    {% partial "helpers/image"
+                        image = item.block.image.default
+                        responsive = item.block.image.responsive
+                        alt = item.block.image.alt
+                        class = "section-image above " ~ item.block.image.class
+                    %}
+                {% endif %}
 
-                    {# --- IMAGE INLINE LEFT --- #}
-                    {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
-                        {% partial "helpers/image"
-                            image = item.block.image.default
-                            responsive = item.block.image.responsive
-                            alt = item.block.image.alt
-                            class = "section-image left " ~ item.block.image.class
-                        %}
-                    {% endif %}
+                {# --- IMAGE INLINE LEFT --- #}
+                {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
+                    {% partial "helpers/image"
+                        image = item.block.image.default
+                        responsive = item.block.image.responsive
+                        alt = item.block.image.alt
+                        class = "section-image left " ~ item.block.image.class
+                    %}
+                {% endif %}
 
-                    {# --- IMAGE INLINE RIGHT --- #}
-                    {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
-                        {% partial "helpers/image"
-                            image = item.block.image.default
-                            responsive = item.block.image.responsive
-                            alt = item.block.image.alt
-                            class = "section-image right " ~ item.block.image.class
-                        %}
-                    {% endif %}
+                {# --- IMAGE INLINE RIGHT --- #}
+                {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
+                    {% partial "helpers/image"
+                        image = item.block.image.default
+                        responsive = item.block.image.responsive
+                        alt = item.block.image.alt
+                        class = "section-image right " ~ item.block.image.class
+                    %}
+                {% endif %}
 
+                {{ item.block.content | raw }}
+
+                {# --- IMAGE BELOW --- #}
+                {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
+                    {% partial "helpers/image"
+                        image = item.block.image.default
+                        responsive = item.block.image.responsive
+                        alt = item.block.image.alt
+                        class = "section-image below " ~ item.block.image.class
+                    %}
+                {% endif %}
+
+                {% elseif item._group == 'html' %}
                     {{ item.block.content | raw }}
 
-                    {# --- IMAGE BELOW --- #}
-                    {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
+                {% elseif item._group == 'image' %}
+                    {% if item.block.default %}
                         {% partial "helpers/image"
-                            image = item.block.image.default
-                            responsive = item.block.image.responsive
-                            alt = item.block.image.alt
-                            class = "section-image below " ~ item.block.image.class
+                            image = item.block.default
+                            responsive = item.block.responsive
+                            alt = item.block.alt
+                            class = "post-body " ~ item.block.class
                         %}
-                    {% endif %}
-
-                    {% elseif item._group == 'html' %}
-                        {{ item.block.content | raw }}
-
-                    {% elseif item._group == 'image' %}
-                        {% if item.block.default %}
-                            {% partial "helpers/image"
-                                image = item.block.default
-                                responsive = item.block.responsive
-                                alt = item.block.alt
-                                class = "post-body " ~ item.block.class
-                            %}
-                    {% endif %}
-
-                    {% elseif item._group == 'cms_content' %}
-                        {% content item.block.cms_content %}
-
-                    {% elseif item._group == 'cms_partial' %}
-                        {% partial item.block.cms_partial %}
                 {% endif %}
-            {% endfor %}
-        </div>
+
+                {% elseif item._group == 'cms_content' %}
+                    {% content item.block.cms_content %}
+
+                {% elseif item._group == 'cms_partial' %}
+                    {% partial item.block.cms_partial %}
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            {% partial __SELF__ ~ "::postslist" posts = posts %}
-        </div>
+
+
+<div class="row">
+    <div class="col-12">
+        {% partial __SELF__ ~ "::postslist" posts = posts %}
     </div>
 </div>
+
 
 
