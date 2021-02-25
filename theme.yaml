@@ -25,6 +25,12 @@ form:
                 tab: Detail
                 label: 'Google Analytics ID'
 
+            twitter_handle:
+                tab: Social
+                label: Twitter Handle
+                default: "@dynamediaUK"
+                placeholder: "@dynamediaUK"
+
             images:
                 tab: Images
                 type: nestedform

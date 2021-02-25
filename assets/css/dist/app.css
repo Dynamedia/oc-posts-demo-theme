@@ -1,6 +1,7 @@
 body {
   color: grey;
   padding-top: 3.5rem;
+  font-size: 1.1rem;
 }
 
 .jumbotron img {
@@ -51,6 +52,11 @@ body {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  margin-bottom: 15px;
+}
+
+h2 {
+  clear: both;
 }
 
 .section-image.left img {

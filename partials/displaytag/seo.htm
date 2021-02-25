@@ -39,6 +39,29 @@
     {% set og_image = this.theme.images.social.facebook %}
 {% endif %}
 
+{### TWITTER TITLE ###}
+{% if tag.seo.twitter_title %}
+    {% set twitter_title = tag.seo.twitter_title %}
+{% else %}
+    {% set twitter_title = page_title %}
+{% endif %}
+
+{### TWITTER DESCRIPTION ###}
+{% if tag.seo.twitter_title %}
+    {% set twitter_description = tag.seo.twitter_description %}
+{% else %}
+    {% set twitter_description = page_description %}
+{% endif %}
+
+{### TWITTER IMAGE ###}
+{% if tag.images.social.twitter %}
+    {% set twitter_image = tag.images.social.twitter %}
+{% elseif tag.images.default %}
+    {% set twitter_image = tag.images.default %}
+{% elseif this.theme.images.social.twitter %}
+    {% set twitter_image = this.theme.images.social.twitter %}
+{% endif %}
+
 
 {% put page_title %}
     <title>{{ page_title | striptags }} | {{ this.theme.site_brand }}</title>
@@ -54,5 +77,18 @@
     <meta property="og:description" content="{{ og_description | striptags }}" />
     {% if og_image %}
         <meta property="og:image" content="{{ og_image | media }}" />
+    {% endif %}
+{% endput %}
+
+{% put twitter %}
+    <meta name="twitter:site" content="{{ this.theme.twitter_handle }}">
+    <meta name="twitter:creator" content="{{ this.theme.twitter_handle }}">
+    <meta name="twitter:title" content="{{ twitter_title | striptags }}">
+    <meta name="twitter:description" content="{{ twitter_description | striptags }}">
+    {% if twitter_image %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ twitter_image | media }}">
+    {% else %}
+        <meta name="twitter:card" content="summary">
     {% endif %}
 {% endput %}
