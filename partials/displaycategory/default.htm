@@ -47,12 +47,14 @@
                 {# The plugin provides several defaults for image positioning #}
                 {# --- IMAGE ABOVE --- #}
                 {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
+                    <div class="image-wrapper">
                     {% partial "helpers/image"
                         image = item.block.image.default
                         responsive = item.block.image.responsive
                         alt = item.block.image.alt
                         class = "section-image above " ~ item.block.image.class
                     %}
+                    </div>
                 {% endif %}
 
                 {# --- IMAGE INLINE LEFT --- #}
@@ -79,12 +81,14 @@
 
                 {# --- IMAGE BELOW --- #}
                 {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
+                    <div class="image-wrapper">
                     {% partial "helpers/image"
                         image = item.block.image.default
                         responsive = item.block.image.responsive
                         alt = item.block.image.alt
                         class = "section-image below " ~ item.block.image.class
                     %}
+                    </div>
                 {% endif %}
 
                 {% elseif item._group == 'html' %}
@@ -92,12 +96,14 @@
 
                 {% elseif item._group == 'image' %}
                     {% if item.block.default %}
+                        <div class="image-wrapper">
                         {% partial "helpers/image"
                             image = item.block.default
                             responsive = item.block.responsive
                             alt = item.block.alt
                             class = "post-body " ~ item.block.class
                         %}
+                        </div>
                     {% endif %}
 
                 {% elseif item._group == 'cms_content' %}
