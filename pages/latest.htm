@@ -13,22 +13,27 @@ sortOrder = "published_at desc"
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
-                <picture class="{{this.theme.images.banner.class}}">
-                    {% for entry in this.theme.images.banner.responsive %}
-                    {% if entry.image and entry.screen_width %}
-                        <source srcset="{{entry.image|media}}" media="({{entry.media_query}}: {{entry.screen_width}}px)">
-                    {% endif %}
-                    {% endfor %}
-                    {% if this.theme.images.banner.default %}
-                        <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
-                    {% endif %}
-                </picture>
-            </div>
-            <div class="col-12 col-md-6">
-                <h1 class="display-3">Latest Posts</h1>
-                <p>This is a paginated list of posts</p>
-            </div>
+            {% if this.theme.images.banner.default %}
+                <div class="col-12 col-md-6">
+                    <picture class="{{this.theme.images.banner.class}}">
+                        {% for entry in this.theme.images.banner.responsive %}
+                            {% if entry.image and entry.screen_width %}
+                                <source srcset="{{entry.image|media}}" media="({{entry.media_query}}: {{entry.screen_width}}px)">
+                            {% endif %}
+                        {% endfor %}
+                            <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
+                    </picture>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h1 class="display-3">Latest Posts</h1>
+                    <p>This is a paginated list of posts</p>
+                </div>
+            {% else %}
+                <div class="col-12 col-md-6">
+                    <h1 class="display-3">Latest Posts</h1>
+                    <p>This is a paginated list of posts</p>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

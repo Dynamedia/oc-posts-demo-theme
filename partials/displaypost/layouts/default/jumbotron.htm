@@ -3,6 +3,7 @@
 <div class="jumbotron">
     <div class="container">
         <div class="row">
+            {% if post.images.banner.default %}
             <div class="col-12 col-md-6">
                 <picture class="{{ post.images.banner.class }}">
                     {% for item in post.images.banner.responsive %}
@@ -10,9 +11,7 @@
                     <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
                     {% endif %}
                     {% endfor %}
-                    {% if post.images.banner.default %}
                     <img src="{{ post.images.banner.default | media }}" alt="{{ post.images.banner.alt }}"/>
-                    {% endif %}
                 </picture>
             </div>
             <div class="col-12 col-md-6">
@@ -28,6 +27,21 @@
                     {% endfor %}</p>
                 {% endif %}
             </div>
+            {% else %}
+                <div class="col-12">
+                    <h1 class="display-3">{{ post.title }}</h1>
+                    <p>{{ post.excerpt | raw  }}</p>
+                    {% if post.primary_category %}
+                    <p>Category: <a class="badge badge-secondary" href="{{ post.primary_category.url }}">{{ post.primary_category.name }}</a></p>
+                    {% endif %}
+                    {% if post.tags | length %}
+                    <p>Tags:
+                        {% for tag in post.tags %}
+                        <a class="badge badge-secondary" href="{{ tag.url }}">#{{ tag.name }}</a>
+                        {% endfor %}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
