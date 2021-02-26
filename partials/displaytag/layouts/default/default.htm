@@ -1,0 +1,19 @@
+{% partial __SELF__ ~ "::layouts/default/jumbotron" tag = tag %}
+
+<div class="row">
+    <div class="col-12">
+        {% partial __SELF__ ~ "::layouts/default/main"
+            tag = tag
+        %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h4 class="mb-4 mt-4">Posts Tagged #{{ tag.name }}</h4>
+        {% partial "common/postlist-cards"
+            posts = __SELF__.posts
+            hideTag = true
+        %}
+    </div>
+</div>

@@ -1,13 +1,17 @@
-{% set post = __SELF__.post %}
-{% set paginator = __SELF__.getPaginator %}
-{% set contents = __SELF__.getContentsList %}
-
-{% partial __SELF__ ~ "::seo" post = post %}
+{% partial "common/utility/seo" object = __SELF__.post %}
 
 {# Do some layout logic here... #}
 
-{% partial __SELF__ ~ "::layouts/default/default"
-    post = post
-    paginator = paginator
-    contents = contents
-%}
+{% if this.layout.id == 'clean' %}
+    {% partial __SELF__ ~ "::layouts/clean/default"
+        post = __SELF__.post
+        paginator = __SELF__.getPaginator
+        contents = __SELF__.getContentsList
+    %}
+{% else %}
+    {% partial __SELF__ ~ "::layouts/default/default"
+        post = __SELF__.post
+        paginator = __SELF__.getPaginator
+        contents = __SELF__.getContentsList
+    %}
+{% endif %}

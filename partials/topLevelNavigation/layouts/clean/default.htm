@@ -1,0 +1,30 @@
+<nav class="navbar clean bg-light fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand waves-effect" href="/">
+            <strong class="text-primary">{{ this.theme.site_brand | upper }}</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            {% if __SELF__.menuItems %}
+            <ul class="navbar-nav mr-auto">
+                {% partial __SELF__ ~ "::layouts/clean/items" items=__SELF__.menuItems %}
+            </ul>
+            {% endif %}
+
+            <form class="form-inline my-2 my-lg-0" action="{{'search'|page}}" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" placeholder="Search posts">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</nav>

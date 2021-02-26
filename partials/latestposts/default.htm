@@ -1,3 +1,5 @@
 {% set posts = __SELF__.posts %}
 
-{% partial __SELF__ ~ "::postslist" posts = posts %}
+{% partial "common/postlist-cards"
+    posts = posts
+%}

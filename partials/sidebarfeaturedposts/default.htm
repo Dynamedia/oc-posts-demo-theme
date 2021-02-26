@@ -1,0 +1,9 @@
+{% if this.layout.id == 'clean' %}
+    {% partial __SELF__ ~ "::layouts/clean/default"
+        posts = __SELF__.posts
+    %}
+{% else %}
+    {% partial __SELF__ ~ "::layouts/default/default"
+        posts = __SELF__.posts
+    %}
+{%  endif %}

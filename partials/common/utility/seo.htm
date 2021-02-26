@@ -1,0 +1,29 @@
+{% put page_title %}
+    <title>{{ object.getSeoSearchTitle }} | {{ this.theme.site_brand }}</title>
+{% endput %}
+
+{% put page_description %}
+    <meta name="description" content="{{ object.getSeoSearchDescription | striptags }}">
+{% endput %}
+
+{% put opengraph %}
+    <meta property="og:title" content="{{ object.getSeoOpengraphTitle }}" />
+    <meta property="og:url" content="{{ object.url }}" />
+    <meta property="og:description" content="{{ object.getSeoOpengraphDescription }}" />
+    {% if object.getSeoOpengraphImage %}
+        <meta property="og:image" content="{{ object.getSeoOpengraphImage | media }}" />
+    {% endif %}
+{% endput %}
+
+{% put twitter %}
+    <meta name="twitter:site" content="{{ this.theme.twitter_handle }}">
+    <meta name="twitter:creator" content="{{ this.theme.twitter_handle }}">
+    <meta name="twitter:title" content="{{ object.getSeoTwitterTitle }}">
+    <meta name="twitter:description" content="{{ object.getSeoTwitterDescription }}">
+    {% if object.getSeoTwitterImage %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ object.getSeoTwitterImage | media }}">
+    {% else %}
+        <meta name="twitter:card" content="summary">
+    {% endif %}
+{% endput %}

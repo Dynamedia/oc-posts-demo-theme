@@ -1,5 +1,3 @@
-{% set posts = __SELF__.posts %}
-
 {% put jumbotron %}
 
 <div class="jumbotron">
@@ -15,4 +13,7 @@
 
 {% endput %}
 
-{% partial __SELF__ ~ "::postslist" posts = posts %}
+{% partial "common/postlist-cards"
+    posts = __SELF__.posts
+    hideCategory = true
+%}

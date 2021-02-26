@@ -1,0 +1,19 @@
+{% partial __SELF__ ~ "::layouts/default/jumbotron" category = category %}
+
+<div class="row">
+    <div class="col-12">
+        {% partial __SELF__ ~ "::layouts/default/main"
+            category = category
+        %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h4 class="mb-4 mt-4">Posted in {{ category.name }}</h4>
+        {% partial "common/postlist-cards"
+            posts = __SELF__.posts
+            hideCategory = true
+        %}
+    </div>
+</div>

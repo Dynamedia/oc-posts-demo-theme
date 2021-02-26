@@ -1,0 +1,39 @@
+<div class="card-deck">
+    {% for post in posts %}
+        <div class="card mb-4" style="min-width: 18rem;">
+            {% if post.images.list.default %}
+                {% partial "common/helpers/image"
+                    image = post.images.list.default
+                    srcset = post.images.list.responsive
+                    alt = post.images.list.alt
+                    class = post.images.list.class
+                %}
+            {% endif %}
+            <div class="card-body">
+                <h4 class="card-title">{{ post.title }}</h4>
+                {% if not hideExcerpt %}
+                    <p class="card-text">{{ post.excerpt | raw }}</p>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                {% if not hideCategory %}
+                    {% if post.primary_category %}
+                        <a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a>
+                    {% endif %}
+                {% endif %}
+                {% if not hideTag %}
+                    {% if post.tags.first %}
+                        <a href="{{ post.tags.first.url }}" class="card-link">#{{ post.tags.first.name }}</a>
+                    {% endif %}
+                {% endif %}
+                <a href="{{ post.url }}" class="card-link">Read More...</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="row">
+    <div class="col-12 pagination">
+        {{ posts.links("pagination::bootstrap-4") | raw }}
+    </div>
+</div>

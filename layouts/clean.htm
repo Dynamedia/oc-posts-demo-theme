@@ -1,4 +1,4 @@
-description = "Default layout"
+description = "Clean layout"
 
 [staticMenu topLevelNavigation]
 code = "top-level-navigation"
@@ -9,7 +9,7 @@ default = 1
 ==
 <!DOCTYPE html>
 <html lang="en">
-    {% partial 'layout/default/head/default' %}
+    {% partial 'layout/clean/head/default' %}
 
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
         {% component 'topLevelNavigation' %}
@@ -21,9 +21,9 @@ default = 1
             </div>
         </main>
 
-        {% partial 'layout/default/footer' %}
+        {% partial 'layout/clean/footer' %}
 
-        {% partial 'layout/default/scripts/default' %}
+        {% partial 'layout/clean/scripts/default' %}
         {% partial 'layout/common/flash' %}
     </body>
 </html>
