@@ -1,7 +1,5 @@
 {% partial "common/utility/seo" object = __SELF__.post %}
 
-{# Do some layout logic here... #}
-
 {% if this.layout.id == 'clean' %}
     {% partial __SELF__ ~ "::layouts/clean/default"
         post = __SELF__.post
@@ -14,4 +12,4 @@
         paginator = __SELF__.getPaginator
         contents = __SELF__.getContentsList
     %}
-{% endif %}
+{%  endif %}
