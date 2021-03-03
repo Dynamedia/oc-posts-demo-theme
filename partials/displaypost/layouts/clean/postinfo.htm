@@ -7,8 +7,8 @@
         {% endif %}
 
         {### INFO FOR MULTI-PAGE POSTS ###}
-        {% if post.getPageCount > 1 %}
-            <p>Page {{ post.getRequestedPage }} of {{ post.getPageCount }}</p>
+        {% if post.pages | length > 1 %}
+            <p>Page {{ __SELF__.getRequestedPage }} of {{ post.pages | length }}</p>
         {% endif %}
     </small>
 {% else %}

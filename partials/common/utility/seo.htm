@@ -1,28 +1,28 @@
 {% put page_title %}
-    <title>{{ object.getSeoSearchTitle }} | {{ this.theme.site_brand }}</title>
+    <title>{{ object.seo_search_title }} | {{ this.theme.site_brand }}</title>
 {% endput %}
 
 {% put page_description %}
-    <meta name="description" content="{{ object.getSeoSearchDescription | striptags }}">
+    <meta name="description" content="{{ object.seo_search_description | striptags }}">
 {% endput %}
 
 {% put opengraph %}
-    <meta property="og:title" content="{{ object.getSeoOpengraphTitle }}" />
+    <meta property="og:title" content="{{ object.seo_opengraph_title }}" />
     <meta property="og:url" content="{{ object.url }}" />
-    <meta property="og:description" content="{{ object.getSeoOpengraphDescription }}" />
+    <meta property="og:description" content="{{ object.seo_opengraph_description }}" />
     {% if object.getSeoOpengraphImage %}
-        <meta property="og:image" content="{{ object.getSeoOpengraphImage | media }}" />
+        <meta property="og:image" content="{{ object.seo_opengraph_image | media }}" />
     {% endif %}
 {% endput %}
 
 {% put twitter %}
     <meta name="twitter:site" content="{{ this.theme.twitter_handle }}">
     <meta name="twitter:creator" content="{{ this.theme.twitter_handle }}">
-    <meta name="twitter:title" content="{{ object.getSeoTwitterTitle }}">
-    <meta name="twitter:description" content="{{ object.getSeoTwitterDescription }}">
-    {% if object.getSeoTwitterImage %}
+    <meta name="twitter:title" content="{{ object.seo_twitter_title }}">
+    <meta name="twitter:description" content="{{ object.seo_twitter_description }}">
+    {% if object.seo_twitter_image %}
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="{{ object.getSeoTwitterImage | media }}">
+        <meta name="twitter:image" content="{{ object.seo_twitter_image | media }}">
     {% else %}
         <meta name="twitter:card" content="summary">
     {% endif %}
