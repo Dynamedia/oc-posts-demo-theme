@@ -2,14 +2,12 @@
 
 {% if this.layout.id == 'clean' %}
     {% partial __SELF__ ~ "::layouts/clean/default"
-        post = __SELF__.post
-        paginator = __SELF__.getPaginator
-        contents = __SELF__.getContentsList
+        post        = __SELF__.post
+        paginator   = __SELF__.paginator
     %}
 {% else %}
     {% partial __SELF__ ~ "::layouts/default/default"
-        post = __SELF__.post
-        paginator = __SELF__.getPaginator
-        contents = __SELF__.getContentsList
+        post        = __SELF__.post
+        paginator   = __SELF__.paginator
     %}
 {%  endif %}

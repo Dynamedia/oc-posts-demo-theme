@@ -21,10 +21,8 @@
                         <a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a>
                     {% endif %}
                 {% endif %}
-                {% if not hideTag %}
-                    {% if post.tags.first %}
-                        <a href="{{ post.tags.first.url }}" class="card-link">#{{ post.tags.first.name }}</a>
-                    {% endif %}
+                {% if not hideTag and post.tags | length %}
+                    <a href="{{ post.tags | first.url }}" class="card-link">#{{ post.tags | first.name }}</a>
                 {% endif %}
                 <a href="{{ post.url }}" class="card-link">Read More...</a>
             </div>

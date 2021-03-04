@@ -13,6 +13,14 @@
 
 {% endput %}
 
+{% put page_title %}
+    <title>Search results for {{ __SELF__.searchQuery }} | {{ this.theme.site_brand }}</title>
+{% endput %}
+
+{% put page_description %}
+    <meta name="description" content="All posts from {{ this.theme.site_name }} matching the search query '{{ __SELF__.searchQuery | striptags }}'">
+{% endput %}
+
 {% partial "common/postlist-cards"
     posts = __SELF__.posts
     hideCategory = true

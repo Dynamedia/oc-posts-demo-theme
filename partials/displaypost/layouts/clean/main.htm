@@ -27,7 +27,7 @@
             </div>
         {% endif %}
 
-        {% for item in __SELF__.getCurrentPage %}
+        {% for item in paginator %}
             {% if item._group == 'section' %}
                 {% if item.block.heading %}
                     <h2 id="{{ item.block.sId }}">{{ item.block.heading }}</h2>
@@ -104,7 +104,7 @@
 
         {% endfor %}
 
-        {% if post.pages | length > 1 %}
+        {% if paginator.total > 1 %}
             {{ paginator.links("pagination::bootstrap-4") | raw }}
         {% endif %}
     </div>
