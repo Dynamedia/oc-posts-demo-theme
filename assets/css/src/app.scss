@@ -11,6 +11,13 @@ body {
   }
 }
 
+.display-3 {
+  font-size: 2.5rem;
+  @media (min-width: 768px) {
+    font-size: 4.5rem;
+  }
+}
+
 .pagination {
   justify-content: center;
   padding-top: 25px;
@@ -25,17 +32,25 @@ body {
   margin: 15px 0;
 }
 
-.card {
-  overflow: hidden;
-  img {
-    width: 100%;
+.card-deck {
+  .card {
+    overflow: hidden;
     min-width: 18rem;
-    max-height: 300px;
-    object-fit: cover;
-    object-position: center;
-  }
-  .card-footer {
+    @media (min-width: 992px) {
+      max-width: 36rem;
+    }
 
+    img {
+      width: 100%;
+      height: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      object-position: 0 0;
+    }
+
+    .card-footer {
+
+    }
   }
 }
 .sidebar {
