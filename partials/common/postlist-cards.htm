@@ -8,7 +8,9 @@
                     alt = post.images.list.alt
                     class = "card-img-top img-fluid " ~ post.images.list.class
                 %}
-            {% endif %}
+           {% else %}
+               <img src="https://picsum.photos/200/300" alt="A placeholder" class="img-fluid card-img-top">
+           {% endif %}
             <div class="card-body">
                 <h4 class="card-title">{{ post.title }}</h4>
                 {% if not hideExcerpt %}
