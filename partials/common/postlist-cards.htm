@@ -1,14 +1,17 @@
 <div class="card-deck">
     {% for post in posts %}
         <div class="card mb-4" style="min-width: 18rem;">
-            {% if post.images.list.default %}
+           <div style="height:250px">
+           {% if post.images.list.default %}
                 {% partial "common/helpers/image"
                     image = post.images.list.default
                     srcset = post.images.list.responsive
                     alt = post.images.list.alt
-                    class = post.images.list.class
+                    class = "card-img-cap img-fluid " ~ post.images.list.class
+                    style = "object-fit: cover; width:100%; height: 100%;"
                 %}
             {% endif %}
+            </div>
             <div class="card-body">
                 <h4 class="card-title">{{ post.title }}</h4>
                 {% if not hideExcerpt %}
