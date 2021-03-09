@@ -36,3 +36,19 @@ require('materialize-css');
 if (typeof(gtag) !== 'function') {
     gtag = function() { console.log('GoogleAnalytics not present.'); }
 }
+
+// set card-deck aspect ratios.
+
+resizeCardDecks();
+
+$( window ).resize(function() {
+    resizeCardDecks();
+});
+
+function resizeCardDecks()
+{
+    $('.card-deck img').each(function() {
+        //$(this).height($(this).width() * 0.5625);
+        $(this).height($(this).width() * 0.65);
+    });
+}

@@ -35,6 +35,17 @@ body {
   margin: 15px 0;
 }
 
+@media (min-width: 992px) {
+  .sidebar .card-deck .card img {
+    height: 140px;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar .card-deck .card img {
+    height: 170px;
+  }
+}
+
 .card-deck .card {
   overflow: hidden;
   min-width: 18rem;
