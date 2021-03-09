@@ -65,6 +65,13 @@ function resizeCardDecks() {
   });
 }
 
+function resizeJumbotron() {
+  $('.jumbotron img').each(function () {
+    //$(this).height($(this).width() * 0.5625);
+    $(this).height($(this).width() * 0.65);
+  });
+}
+
 /***/ }),
 
 /***/ "./node_modules/materialize-css/dist/js/materialize.js":

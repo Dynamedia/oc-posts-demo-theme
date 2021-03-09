@@ -9,6 +9,12 @@ body {
     object-fit: cover;
     object-position: center;
   }
+  h1 {
+    margin-top: 20px;
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
+  }
 }
 
 .display-3 {

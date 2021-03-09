@@ -52,3 +52,11 @@ function resizeCardDecks()
         $(this).height($(this).width() * 0.65);
     });
 }
+
+function resizeJumbotron()
+{
+    $('.jumbotron img').each(function() {
+        //$(this).height($(this).width() * 0.5625);
+        $(this).height($(this).width() * 0.65);
+    });
+}
