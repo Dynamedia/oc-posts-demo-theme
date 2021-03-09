@@ -31,3 +31,17 @@
     <meta name="twitter:image" content="{{ this.theme.images.social.facebook | media }}">
 {% endplaceholder %}
 
+{% placeholder seo_json default %}
+    {# todo complete this #}
+<script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "{{ this.theme.site_name }}",
+        "url": "{{ 'home' | page }}",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{{  'search' | page }}?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }</script>
+{% endplaceholder %}
