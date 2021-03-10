@@ -1,0 +1,6 @@
+{% if user.profile.full_biography %}
+<h4>About {{ user.first_name }}</h4>
+<p>
+   {{ user.profile.full_biography | raw }}
+</p>
+{% endif %}

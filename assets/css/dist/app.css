@@ -11,6 +11,10 @@ body {
   -o-object-position: center;
      object-position: center;
 }
+.jumbotron img.rounded-circle {
+  height: 200px;
+  width: 200px;
+}
 .jumbotron h1 {
   margin-top: 20px;
 }

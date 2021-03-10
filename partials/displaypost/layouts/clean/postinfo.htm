@@ -1,6 +1,6 @@
 {% if post.is_published %}
     <small>
-        By {{ post.user.first_name }} {{ post.user.last_name }},
+        By <a href="{{ post.user.profile.url }}">{{ post.user.first_name }} {{ post.user.last_name }}</a>,
         on {{ post.published_at | date('d-m-Y') }}
         {% if post.updated_at > post.published_at %}
             <br>Last updated {{ post.updated_at | date('d-m-Y') }}
