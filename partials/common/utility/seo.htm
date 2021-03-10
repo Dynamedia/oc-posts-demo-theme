@@ -17,7 +17,11 @@
 
 {% put twitter %}
     <meta name="twitter:site" content="{{ this.theme.twitter_handle }}">
-    <meta name="twitter:creator" content="{{ this.theme.twitter_handle }}">
+    {% if object.user.profile.twitter_handle %}
+        <meta name="twitter:creator" content="{{ object.user.profile.twitter_handle }}">
+    {% else %}
+        <meta name="twitter:creator" content="{{ this.theme.twitter_handle }}">
+    {% endif %}
     <meta name="twitter:title" content="{{ object.seo_twitter_title }}">
     <meta name="twitter:description" content="{{ object.seo_twitter_description }}">
     {% if object.seo_twitter_image %}

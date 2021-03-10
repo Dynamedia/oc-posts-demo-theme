@@ -1,4 +1,10 @@
-{% partial "common/utility/seo" object = __SELF__.user %}
+{% put page_title %}
+    <title>Posts By {{ __SELF__.user.first_name }} {{ __SELF__.user.last_name }} | {{ this.theme.site_brand }}</title>
+{% endput %}
+
+{% put page_description %}
+    <meta name="description" content="Read all of the posts by {{ __SELF__.user.first_name }} {{ __SELF__.user.last_name }}">
+{% endput %}
 
 {# Do some layout logic here... #}
 
