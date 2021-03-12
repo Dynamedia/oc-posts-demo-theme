@@ -17,8 +17,8 @@
 
 {% put twitter %}
     <meta name="twitter:site" content="{{ this.theme.twitter_handle }}">
-    {% if object.user.profile.twitter_handle %}
-        <meta name="twitter:creator" content="{{ object.user.profile.twitter_handle }}">
+    {% if object.author.profile.twitter_handle %}
+        <meta name="twitter:creator" content="{{ object.author.profile.twitter_handle }}">
     {% else %}
         <meta name="twitter:creator" content="{{ this.theme.twitter_handle }}">
     {% endif %}
