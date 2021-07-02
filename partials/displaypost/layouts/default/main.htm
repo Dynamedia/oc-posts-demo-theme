@@ -54,7 +54,9 @@
                     %}
                 {% endif %}
 
+                <div class="mb-4">
                 {{ item.block.content | raw }}
+                </div>
 
                 {# --- IMAGE BELOW --- #}
                 {% if item.block.image.default and item.block.image.image_style == 'full-below' %}

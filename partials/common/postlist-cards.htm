@@ -17,16 +17,18 @@
                     <p class="card-text">{{ post.excerpt | raw }}</p>
                 {% endif %}
             </div>
-            <div class="card-footer">
+            <div class="card-footer small text-left">
+                <ul class="list-inline">
                 {% if not hideCategory %}
                     {% if post.primary_category %}
-                        <a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a>
+                        <li class="list-inline-item"><a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a></li>
                     {% endif %}
                 {% endif %}
                 {% if not hideTag and post.tags | length %}
-                    <a href="{{ post.tags | first.url }}" class="card-link">#{{ post.tags | first.name }}</a>
+                    <li class="list-inline-item"><a href="{{ post.tags | first.url }}" class="card-link">#{{ post.tags | first.name }}</a></li>
                 {% endif %}
-                <a href="{{ post.url }}" class="card-link">Read More...</a>
+                <li class="list-inline-item"><a href="{{ post.url }}" class="card-link">Read More...</a></li>
+                </ul>
             </div>
         </div>
     {% endfor %}
