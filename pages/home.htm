@@ -4,14 +4,14 @@ layout = "default"
 is_hidden = 0
 
 [listPosts featuredPosts]
-postIds = "17,2"
+postIds = "1,2"
 postsLimit = 2
 postsPerPage = 2
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 
 [listPosts latestPosts]
-notPostIds = "17,2"
+notPostIds = "1,2"
 notCategoryIds =
 notTagIds =
 postsLimit = 5
@@ -33,11 +33,13 @@ sortOrder = "published_at desc"
                     {% endfor %}
                     {% if this.theme.images.banner.default %}
                         <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
+                    {% else %}
+                        <img src="https://picsum.photos/200/150" alt="A placeholder">
                     {% endif %}
                 </picture>
             </div>
             <div class="col-12 col-md-6">
-                <h1 class="display-3">October CMS Posts Plugin</h1>
+                <h1 class="display-3">Winter CMS Posts Plugin</h1>
                 <p>
                     This is a simple Bootstrap 4 template with examples to help you set up the Posts plugin.
                     You can get it free at <a href="https://github.com/Dynamedia/oc-posts-demo">Github</a>.
@@ -63,7 +65,7 @@ sortOrder = "published_at desc"
 
             <h2 class="mt-4 mb-4">Five of the latest posts</h2>
             {% component 'latestPosts' %}
-    
+
             <p class="text-right"><a href="/latest">All Posts</a></p>
         </div>
     </div>
