@@ -20,7 +20,7 @@ form:
                 tab: Detail
                 label: Site Description
                 comment: The website name
-                default: Winter CMS Dynamedia Posts plugin demo theme
+                default: October CMS Dynamedia Posts plugin demo theme
             googleanalytics_id:
                 tab: Detail
                 label: 'Google Analytics ID'
