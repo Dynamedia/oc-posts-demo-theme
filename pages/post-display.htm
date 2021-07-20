@@ -1,10 +1,9 @@
 title = "Posts Page"
-url = "/:postsCategoryPath*/:postsPostSlug"
+url = "/posts/:postsCategoryPath*/:postsPostSlug"
 layout = "default"
 is_hidden = 0
 
 [displayPost]
 
 ==
-{% component 'displayCategory' %}
 {% component 'displayPost' %}
