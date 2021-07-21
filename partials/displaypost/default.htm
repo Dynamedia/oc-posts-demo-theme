@@ -2,7 +2,7 @@
 
 {% put seo_json %}
     <script type="application/ld+json">
-        {{ __SELF__.post.schema | json_encode(constant('JSON_PRETTY_PRINT')) | raw  }}
+        {{ __SELF__.post.seo_schema | json_encode(constant('JSON_PRETTY_PRINT')) | raw  }}
     </script>
 {% endput %}
 
