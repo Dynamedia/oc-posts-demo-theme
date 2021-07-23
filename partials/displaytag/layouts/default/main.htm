@@ -70,7 +70,7 @@
         {% content item.block.cms_content %}
 
     {% elseif item._group == 'cms_partial' %}
-        {% partial item.block.cms_partial %}
+        {% partial item.block.cms_partial data=extractRepeaterData(item.block.data) %}
     {% endif %}
 
 {% endfor %}
