@@ -21,6 +21,7 @@
                 {% endif %}
 
                 {# --- The plugin provides several defaults for image positioning --- #}
+                {# --- Override defaults in config.php --- #}
                 {# --- IMAGE ABOVE --- #}
                 {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
                     <div class="image-wrapper">
@@ -89,7 +90,7 @@
                 {% content item.block.cms_content %}
 
             {% elseif item._group == 'cms_partial' %}
-                {% partial item.block.cms_partial %}
+                {% partial item.block.cms_partial data=extractRepeaterData(item.block.data) %}
             {% endif %}
 
         {% endfor %}
