@@ -1,11 +1,15 @@
 <h2>This is an example Partial</h2>
 <p>Partials support passing data from the posts plugin</p>
-<p>This partial supports the following keys: myFirstKey, mySecondKey.</p>
+<p>This partial supports the following keys: myName, myEmail and myURL.</p>
 
-{% if data.myFirstKey %}
-    <p>My first value is {{ data.myFirstKey }}</p>
+{% if data.myName %}
+    <p>My Name is {{ data.myName }}</p>
 {% endif %}
 
-{% if data.mySecondKey %}
-    <p>My second value is {{ data.mySecondKey }}</p>
+{% if data.myEmail %}
+    <p>My email address is {{ data.myEmail }}</p>
+{% endif %}
+
+{% if data.myUrl %}
+    <p>My website address is {{ data.myUrl }}</p>
 {% endif %}
