@@ -1,6 +1,7 @@
 name: "Posts Demo"
 description: "Demo theme for oc-dynamedia-posts"
-author: "Rob Ballantyne (Dynamedia)"
+author: "Dynamedia (Rob Ballantyne)"
+authorCode: "Dynamedia"
 homepage: "https://dynamedia.uk"
 code: "postsdemo"
 form:
