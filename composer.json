@@ -1,5 +1,5 @@
 {
-    "name": "dynamedia/oc-posts-demo-theme",
+    "name": "dynamedia/postsdemo-theme",
     "type": "october-theme",
     "description": "Demo theme for Dynamedia Posts plugin",
     "require": {
