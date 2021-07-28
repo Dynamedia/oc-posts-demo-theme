@@ -1,0 +1,8 @@
+{
+    "name": "dynamedia/oc-posts-demo-theme",
+    "type": "october-theme",
+    "description": "Demo theme for Dynamedia Posts plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
