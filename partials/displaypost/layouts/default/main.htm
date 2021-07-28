@@ -13,86 +13,14 @@
             </div>
         {% endif %}
 
-        {# --- Supporting pagebreak block --- #}
+
+        {#  --- Render the body, block-by-block
+        Use the paginator to support breaking pages in the right place
+        todo: We don't seem to have the benefit of include ignore missing, so write that later
+        to acommodate custom blocks which may not be supported in the theme
+        --- #}
         {% for item in paginator %}
-            {% if item._group == 'section' %}
-                {% if item.block.heading %}
-                    <h2 id="{{ item.block.sId }}">{{ item.block.heading }}</h2>
-                {% endif %}
-
-                {# --- The plugin provides several defaults for image positioning --- #}
-                {# --- Override defaults in config.php --- #}
-                {# --- IMAGE ABOVE --- #}
-                {% if item.block.image.default and item.block.image.image_style == 'full-above' %}
-                    <div class="image-wrapper">
-                        {#  --- This helper produces a <picture> element --- #}
-                        {% partial "common/helpers/image"
-                            image = item.block.image.default
-                            responsive = item.block.image.responsive
-                            alt = item.block.image.alt
-                            class = "section-image above " ~ item.block.image.class
-                        %}
-                    </div>
-                {% endif %}
-
-                {# --- IMAGE INLINE LEFT --- #}
-                {% if item.block.image.default and item.block.image.image_style == 'inline-left' %}
-                    {% partial "common/helpers/image"
-                        image = item.block.image.default
-                        responsive = item.block.image.responsive
-                        alt = item.block.image.alt
-                        class = "section-image left " ~ item.block.image.class
-                    %}
-                {% endif %}
-
-                {# --- IMAGE INLINE RIGHT --- #}
-                {% if item.block.image.default and item.block.image.image_style == 'inline-right' %}
-                    {% partial "common/helpers/image"
-                        image = item.block.image.default
-                        responsive = item.block.image.responsive
-                        alt = item.block.image.alt
-                        class = "section-image right " ~ item.block.image.class
-                    %}
-                {% endif %}
-
-                <div class="mb-4">
-                {{ item.block.content | raw }}
-                </div>
-
-                {# --- IMAGE BELOW --- #}
-                {% if item.block.image.default and item.block.image.image_style == 'full-below' %}
-                    <div class="image-wrapper">
-                        {% partial "common/helpers/image"
-                            image = item.block.image.default
-                            responsive = item.block.image.responsive
-                            alt = item.block.image.alt
-                            class = "section-image below " ~ item.block.image.class
-                        %}
-                    </div>
-                {% endif %}
-
-            {% elseif item._group == 'html' %}
-            {{ item.block.content | raw }}
-
-            {% elseif item._group == 'image' %}
-            {% if item.block.default %}
-            <div class="image-wrapper">
-                {% partial "common/helpers/image"
-                image = item.block.default
-                responsive = item.block.responsive
-                alt = item.block.alt
-                class = "post-body " ~ item.block.class
-                %}
-            </div>
-            {% endif %}
-
-            {% elseif item._group == 'cms_content' %}
-                {% content item.block.cms_content %}
-
-            {% elseif item._group == 'cms_partial' %}
-                {% partial item.block.cms_partial data=extractRepeaterData(item.block.data) %}
-            {% endif %}
-
+            {% partial "common/blocks/" ~ item._group block=item.block %}
         {% endfor %}
 
         {% if paginator.total > 1 %}

@@ -1,0 +1,54 @@
+{% if block.heading %}
+    <h2 id="{{ block.sId }}">{{ block.heading }}</h2>
+{% endif %}
+
+{# --- The plugin provides several defaults for image positioning --- #}
+{# --- Override defaults in config.php and include logic for them here--- #}
+{# --- IMAGE ABOVE --- #}
+{% if block.image.default and block.image.image_style == 'full-above' %}
+    <div class="image-wrapper">
+        {#  --- This helper produces a <picture> element --- #}
+        {% partial "common/helpers/image"
+            image = block.image.default
+            responsive = block.image.responsive
+            alt = block.image.alt
+            class = "section-image above " ~ block.image.class
+        %}
+    </div>
+{% endif %}
+
+{# --- IMAGE INLINE LEFT --- #}
+{% if block.image.default and block.image.image_style == 'inline-left' %}
+    {% partial "common/helpers/image"
+        image = block.image.default
+        responsive = block.image.responsive
+        alt = block.image.alt
+        class = "section-image left " ~ block.image.class
+    %}
+{% endif %}
+
+{# --- IMAGE INLINE RIGHT --- #}
+{% if block.image.default and block.image.image_style == 'inline-right' %}
+    {% partial "common/helpers/image"
+        image = block.image.default
+        responsive = block.image.responsive
+        alt = block.image.alt
+        class = "section-image right " ~ block.image.class
+    %}
+{% endif %}
+
+<div class="mb-4">
+{{ block.content | raw }}
+</div>
+
+{# --- IMAGE BELOW --- #}
+{% if block.image.default and block.image.image_style == 'full-below' %}
+    <div class="image-wrapper">
+        {% partial "common/helpers/image"
+            image = block.image.default
+            responsive = block.image.responsive
+            alt = block.image.alt
+            class = "section-image below " ~ block.image.class
+        %}
+    </div>
+{% endif %}

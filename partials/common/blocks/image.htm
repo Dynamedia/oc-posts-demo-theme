@@ -1,0 +1,8 @@
+<div class="image-wrapper">
+    {% partial "common/helpers/image"
+        image = block.default
+        responsive = block.responsive
+        alt = block.alt
+        class = "post-body " ~ block.class
+    %}
+</div>
