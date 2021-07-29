@@ -1,6 +1,6 @@
-title = "Home"
 url = "/"
 layout = "default"
+title = "Home"
 is_hidden = 0
 
 [listPosts featuredPosts]
@@ -12,15 +12,18 @@ sortOrder = "published_at desc"
 
 [listPosts latestPosts]
 notPostIds = "1,2"
-notCategoryIds =
-notTagIds =
 postsLimit = 5
 postsPerPage = 5
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 ==
-{% put jumbotron %}
+{#  ---
+You could easily apply some layout logic here if you wanted to build a very dynamic theme.
+Eg, if you wanted a sidebar on all pages you could put the featured/latest posts components in the layout files.
+We're not doing that here, we just want alt styles so main pages are designed around the default layout only and components live on pages.
+--- #}
 
+{% put jumbotron %}
 <div class="jumbotron">
     <div class="container">
         <div class="row">
