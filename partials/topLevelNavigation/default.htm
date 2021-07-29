@@ -1,5 +1,5 @@
-{% if this.layout.id != 'fallback' %}
-    {% partial __SELF__ ~ "::layouts/" ~ this.layout.id ~ "/default" %}
+{% if this.layout.id == 'clean' %}
+    {% partial __SELF__ ~ "::layouts/clean/default" %}
 {% else %}
     {% partial __SELF__ ~ "::layouts/default/default" %}
 {%  endif %}
