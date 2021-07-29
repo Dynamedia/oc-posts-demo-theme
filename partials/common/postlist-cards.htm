@@ -1,41 +1,46 @@
-<div class="card-deck main">
-    {% for post in posts %}
-        <div class="card mb-4">
-           {% if post.images.list.default %}
-                {% partial "common/helpers/image"
-                    image = post.images.list.default
-                    srcset = post.images.list.responsive
-                    alt = post.images.list.alt
-                    class = "card-img-top img-fluid " ~ post.images.list.class
-                %}
-           {% else %}
-               <img src="https://picsum.photos/200/300" alt="A placeholder" class="img-fluid card-img-top">
-           {% endif %}
-            <div class="card-body">
-                <h4 class="card-title">{{ post.title }}</h4>
-                {% if not hideExcerpt %}
-                    <p class="card-text">{{ post.excerpt | striptags }}</p>
-                {% endif %}
-            </div>
-            <div class="card-footer small text-left">
-                <ul class="list-inline">
-                {% if not hideCategory %}
-                    {% if post.primary_category %}
-                        <li class="list-inline-item"><a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a></li>
+{% if posts | length %}
+    {% if title %}
+        <h5 class="mb-3">{{ title }}</h5>
+    {% endif %}
+    <div class="card-deck main">
+        {% for post in posts %}
+            <div class="card mb-4">
+               {% if post.images.list.default %}
+                    {% partial "common/helpers/image"
+                        image = post.images.list.default
+                        srcset = post.images.list.responsive
+                        alt = post.images.list.alt
+                        class = "card-img-top img-fluid " ~ post.images.list.class
+                    %}
+               {% else %}
+                   <img src="https://picsum.photos/200/300" alt="A placeholder" class="img-fluid card-img-top">
+               {% endif %}
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    {% if not hideExcerpt %}
+                        <p class="card-text">{{ post.excerpt | striptags }}</p>
                     {% endif %}
-                {% endif %}
-                {% if not hideTag and post.tags | length %}
-                    <li class="list-inline-item"><a href="{{ post.tags | first.url }}" class="card-link">#{{ post.tags | first.name }}</a></li>
-                {% endif %}
-                <li class="list-inline-item"><a href="{{ post.url }}" class="card-link">Read More...</a></li>
-                </ul>
+                </div>
+                <div class="card-footer small text-left">
+                    <ul class="list-inline">
+                    {% if not hideCategory %}
+                        {% if post.primary_category %}
+                            <li class="list-inline-item"><a href="{{ post.primary_category.url }}" class="card-link">{{ post.primary_category.name }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                    {% if not hideTag and post.tags | length %}
+                        <li class="list-inline-item"><a href="{{ post.tags | first.url }}" class="card-link">#{{ post.tags | first.name }}</a></li>
+                    {% endif %}
+                    <li class="list-inline-item"><a href="{{ post.url }}" class="card-link">Read More...</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-</div>
-
-<div class="row">
-    <div class="col-12 pagination">
-        {{ posts.links("pagination::bootstrap-4") | raw }}
+        {% endfor %}
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-12 pagination">
+            {{ posts.links("pagination::bootstrap-4") | raw }}
+        </div>
+    </div>
+{% endif %}
