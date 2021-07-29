@@ -4,6 +4,15 @@ postsLimit = 2
 postsPerPage = 2
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
+
+[listPosts sidebarLatestPosts]
+notPostIds = "1,2"
+postsLimit = 5
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
 ==
 {# --- Style & logic inside sidebarfeaturedposts partial directory. Could do it here instead --- #}
+{# --- This theme runs sidebars only on posts pages. If you want a global sidebar, put these components in the layout #}
 {% component 'sidebarFeaturedPosts' %}
+{% component 'sidebarLatestPosts' %}
