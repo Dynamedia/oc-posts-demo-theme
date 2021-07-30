@@ -16,3 +16,30 @@ sortOrder = "published_at desc"
 {# --- This theme runs sidebars only on posts pages. If you want a global sidebar, put these components in the layout #}
 {% component 'sidebarFeaturedPosts' %}
 {% component 'sidebarLatestPosts' %}
+
+{# --- Here we can use the Post model (via displayPost $post) to get some related posts using the public getPostsList method --- #}
+{# --- This behaviour will remain, however Posts will also provide a getReleatedPosts method which will return a list of posts --- #}
+
+{% if post %}
+    {% set relatedPosts = post.getPostsList(
+        {
+            'optionsPerPage': 5,
+            'optionsLimit': 5,
+            'optionsNotPostIds': [post.id],
+            'optionsCategoryIds': post.category_ids,
+            'optionsTagIds': post.tag_ids
+        }).items %}
+
+    {# --- Some layout logic for demonstration. Better to create a separate partial with the logic --- #}
+    {% if this.layout.id == 'clean' %}
+        {% partial "common/postlist-clean"
+            posts = relatedPosts
+            title = "Related Posts"
+        %}
+    {% else %}
+        {% partial "common/postlist-cards"
+            posts = relatedPosts
+            title = "Related Posts"
+        %}
+    {% endif %}
+{% endif %}

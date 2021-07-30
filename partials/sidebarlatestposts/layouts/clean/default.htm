@@ -1,21 +1,4 @@
-{% if __SELF__.posts | length %}
-    <h5 class="mb-3">Latest Posts</h5>
-    <div class="row">
-        {% for post in __SELF__.posts %}
-            <div class="col-12 mb-4">
-                <h7 class="font-weight-bold"><a href="{{ post.url }}">{{ post.title }}</a></h7>
-                {% partial "common/helpers/image"
-                    image = post.images.list.default
-                    style = "width:100px;border:0;"
-                    srcset = post.images.list.responsive
-                    alt = post.images.list.alt
-                    class = "img-thumbnail float-left mr-1 image-fluid" ~ post.images.list.class
-                %}
-                <p class="small font-italic">{{ post.excerpt | striptags }}</p>
-                <p class="small float-left">Posted
-                    {% if post.primary_category %} in <a href="{{ post.primary_category.url }}">{{ post.primary_category.name }}</a> {% endif %}
-                    by <a href="{{ post.author.profile.url }}">{{ post.author.full_name }}</a></p>
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
+{% partial "common/postlist-clean"
+    posts = __SELF__.posts
+    title = "Latest Posts"
+%}
