@@ -1,10 +1,12 @@
-title = "Tags"
 url = "/tags/:postsTagSlug"
 layout = "default"
+title = "Tags"
 is_hidden = 0
 
 [displayTag]
-postsPerPage = 11
-noPostsMessage = "No posts found"
+
+[viewBag]
+localeUrl[tst] = "/toogs/:postsTagSlug"
+localeUrl[de] = "/stichworte/:postsTagSlug"
 ==
 {% component 'displayTag' %}
