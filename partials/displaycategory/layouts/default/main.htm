@@ -1,10 +1,1 @@
-{#  ---
-Render the body, block-by-block
-todo: We don't seem to have the benefit of include ignore missing, so write that later
-to acommodate custom blocks which may not be supported in the theme
---- #}
-
-{% for item in category.body %}
-    {% partial "common/blocks/" ~ item._group block=item.block %}
-{% endfor %}
-
+{{ category.body.renderAllPages | raw }}

@@ -26,14 +26,7 @@
             </div>
         {% endif %}
 
-        {#  --- Render the body, block-by-block
-        Use the paginator to support breaking pages in the right place
-        todo: We don't seem to have the benefit of include ignore missing, so write that later
-        to acommodate custom blocks which may not be supported in the theme
-        --- #}
-        {% for item in paginator %}
-            {% partial "common/blocks/" ~ item._group block=item.block %}
-        {% endfor %}
+        {{ post.body.renderPage(paginator.currentPage) | raw  }}
 
         {% if paginator.total > 1 %}
             {{ paginator.links("pagination::bootstrap-4") | raw }}
