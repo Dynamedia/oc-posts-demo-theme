@@ -1,0 +1,1 @@
+Render object body properly. The plugin is now responsible for the entire output through views - do styles and view overrides(?)
