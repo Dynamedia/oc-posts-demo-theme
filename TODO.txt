@@ -1,1 +1,3 @@
 Render object body properly. The plugin is now responsible for the entire output through views - do styles and view overrides(?)
+
+Display links to direct descendants of categories - Ensure complete silo structure by default
