@@ -120,3 +120,58 @@ body {
     object-position: center;
   }
 
+
+
+/* clear fix */
+.body.repeater-block {
+    margin-bottom: 15px;
+}
+
+/* clear fix */
+.body.repeater-block::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.richeditor-block figure,
+.markdown-block figure {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 10px auto;
+    border: 1px solid #eee;
+    padding: 5px;
+    overflow: hidden;
+}
+.richeditor-block figure img,
+.markdown-block figure img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.richeditor-block figure figcaption,
+.markdown-block figure figcaption {
+    padding: 5px 5px 5px 0;
+}
+
+/**
+    Really simple single breakpoint - again, the theme will want to override these styles
+ */
+@media only screen and (min-width: 800px) {
+    .richeditor-block figure.inline-left,
+    .markdown-block figure.inline-left {
+        max-width:30%;
+        float:left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .richeditor-block figure.inline-right,
+    .markdown-block figure.inline-right {
+        max-width:30%;
+        float:right;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}

@@ -1,7 +1,6 @@
 /*
  * Application
  */
-require('materialize-css');
 (function($) {
     "use strict";
 

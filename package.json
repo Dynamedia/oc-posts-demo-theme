@@ -1,11 +1,10 @@
-
 {
   "name": "oc-posts-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
   },
   "keywords": [],
   "author": "",
@@ -18,7 +17,5 @@
     "sass": "^1.32.5",
     "sass-loader": "^8.0.2"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
