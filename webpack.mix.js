@@ -8,7 +8,14 @@ mix.sass('assets/css/src/app.scss', 'assets/css/src/',{
     }
 });
 
+mix.sass('assets/css/src/backend-posts.scss', 'assets/css/src/',{
+    sassOptions: {
+        //outputStyle: 'nested'
+    }
+});
+
 mix.postCss('assets/css/src/app.css', 'assets/css/dist');
+mix.postCss('assets/css/src/backend-posts.css', 'assets/css/dist');
 
 mix.options({
     postCss: [

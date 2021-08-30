@@ -1,3 +1,4 @@
+// There is not musc here - This is a very simple demo theme
 body {
   color: grey;
   padding-top: 3.5rem;
@@ -89,93 +90,58 @@ body {
 }
 
 
-  .post-body img, .section-image.above img, .section-image.below img, .post-image.banner img  {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-    h2 {
-      clear: both;
-    }
-
-  .section-image.left img {
-    float:left;
-    width: 400px;
-    max-width: 40%;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    object-fit: cover;
-    object-position: center;
-  }
-  .section-image.right img{
-    float:right;
-    width: 400px;
-    max-width: 40%;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    object-fit: cover;
-    object-position: center;
-  }
-
-
+// Object body
 
 .body.repeater-block {
     margin-bottom: 15px;
-    
+
+    // Clear blocks
     &::after {
     content: "";
     display: table;
     clear: both;
     }
+    // But not nested blocks - Basically, richeditor & markdown images which can be floats
     .repeater-block {
         &::after {
             clear: none;
         }
     }
-}
 
-
-.richeditor-block figure,
-.markdown-block figure {
-    display: block;
-    max-width: 100%;
-    margin: 0 auto 10px auto;
-    border: 1px solid #eee;
-    padding: 5px;
-    overflow: hidden;
-}
-.richeditor-block figure img,
-.markdown-block figure img {
-    display: block;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.richeditor-block figure figcaption,
-.markdown-block figure figcaption {
-    padding: 5px 5px 5px 0;
-}
-
-/**
-    Really simple single breakpoint - again, the theme will want to override these styles
- */
-@media only screen and (min-width: 800px) {
-    .richeditor-block figure.inline-left,
-    .markdown-block figure.inline-left {
-        max-width:30%;
-        float:left;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-
-    .richeditor-block figure.inline-right,
-    .markdown-block figure.inline-right {
-        max-width:30%;
-        float:right;
-        margin-left: 10px;
-        margin-bottom: 10px;
+    figure {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto 10px auto;
+        border: 1px solid #eee;
+        padding: 5px;
+        overflow: hidden;
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        figcaption {
+            padding: 5px 5px 5px 0;
+        }
+        // Only a single breakpoint - Only float images if the screen is large enough
+        &.inline-left {
+            @media only screen and (min-width: 800px) {
+                max-width:55%;
+                float:left;
+                margin-top: 1em;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+        }
+        &.inline-right {
+            @media only screen and (min-width: 800px) {
+                max-width:55%;
+                float:right;
+                margin-top: 1em;
+                margin-left: 10px;
+                margin-bottom: 5px;
+            }
+        }
     }
 }
+

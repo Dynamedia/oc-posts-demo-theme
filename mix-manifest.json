@@ -1,5 +1,7 @@
 {
     "/assets/js/dist/app.js": "/assets/js/dist/app.js",
     "/assets/css/dist/app.css": "/assets/css/dist/app.css",
-    "/assets/css/src/app.css": "/assets/css/src/app.css"
+    "/assets/css/src/backend-posts.css": "/assets/css/src/backend-posts.css",
+    "/assets/css/src/app.css": "/assets/css/src/app.css",
+    "/assets/css/dist/backend-posts.css": "/assets/css/dist/backend-posts.css"
 }

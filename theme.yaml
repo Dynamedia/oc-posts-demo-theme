@@ -4,6 +4,7 @@ author: "Dynamedia (Rob Ballantyne)"
 authorCode: "Dynamedia"
 homepage: "https://dynamedia.uk"
 code: "postsdemo"
+postsBackendCss: "/themes/postsdemo/assets/css/dist/backend-posts.css"
 form:
     tabs:
         fields:

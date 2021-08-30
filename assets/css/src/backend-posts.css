@@ -1,0 +1,47 @@
+.body.repeater-block {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.body.repeater-block::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.body.repeater-block .repeater-block::after {
+  clear: none;
+}
+.body.repeater-block figure {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 10px auto;
+  border: 1px solid #eee;
+  padding: 5px;
+  overflow: hidden;
+}
+.body.repeater-block figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.body.repeater-block figure figcaption {
+  padding: 5px 5px 5px 0;
+}
+@media only screen and (min-width: 800px) {
+  .body.repeater-block figure.inline-left {
+    max-width: 45%;
+    float: left;
+    margin-top: 2em;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .body.repeater-block figure.inline-right {
+    max-width: 45%;
+    float: right;
+    margin-top: 2em;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+}

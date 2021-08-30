@@ -1,0 +1,56 @@
+// Object body
+
+.body.repeater-block {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    // Clear blocks
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    // But not nested blocks - Basically, richeditor & markdown images which can be floats
+    .repeater-block {
+        &::after {
+            clear: none;
+        }
+    }
+
+    figure {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto 10px auto;
+        border: 1px solid #eee;
+        padding: 5px;
+        overflow: hidden;
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        figcaption {
+            padding: 5px 5px 5px 0;
+        }
+        // Only a single breakpoint - Only float images if the screen is large enough
+        &.inline-left {
+            @media only screen and (min-width: 800px) {
+                max-width:45%;
+                float:left;
+                margin-top: 2em;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+        }
+        &.inline-right {
+            @media only screen and (min-width: 800px) {
+                max-width:45%;
+                float:right;
+                margin-top: 2em;
+                margin-left: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

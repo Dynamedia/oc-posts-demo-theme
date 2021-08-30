@@ -85,10 +85,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./assets/css/src/backend-posts.scss":
+/*!*******************************************!*\
+  !*** ./assets/css/src/backend-posts.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./assets/css/src/app.css":
 /*!********************************!*\
   !*** ./assets/css/src/app.css ***!
   \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./assets/css/src/backend-posts.css":
+/*!******************************************!*\
+  !*** ./assets/css/src/backend-posts.css ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -160,7 +186,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		var deferredModules = [
 /******/ 			["./assets/js/src/app.js"],
 /******/ 			["./assets/css/src/app.scss"],
-/******/ 			["./assets/css/src/app.css"]
+/******/ 			["./assets/css/src/backend-posts.scss"],
+/******/ 			["./assets/css/src/app.css"],
+/******/ 			["./assets/css/src/backend-posts.css"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		
