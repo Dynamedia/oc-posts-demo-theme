@@ -122,17 +122,21 @@ body {
 
 
 
-/* clear fix */
 .body.repeater-block {
     margin-bottom: 15px;
-}
-
-/* clear fix */
-.body.repeater-block::after {
+    
+    &::after {
     content: "";
     display: table;
     clear: both;
+    }
+    .repeater-block {
+        &::after {
+            clear: none;
+        }
+    }
 }
+
 
 .richeditor-block figure,
 .markdown-block figure {

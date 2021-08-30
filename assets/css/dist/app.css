@@ -130,16 +130,16 @@ h2 {
      object-position: center;
 }
 
-/* clear fix */
 .body.repeater-block {
   margin-bottom: 15px;
 }
-
-/* clear fix */
 .body.repeater-block::after {
   content: "";
   display: table;
   clear: both;
+}
+.body.repeater-block .repeater-block::after {
+  clear: none;
 }
 
 .richeditor-block figure,
