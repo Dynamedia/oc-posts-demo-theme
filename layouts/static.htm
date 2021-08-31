@@ -1,0 +1,38 @@
+description = "Static Pages Default layout"
+
+[staticMenu topLevelNavigation]
+code = "top-level-navigation"
+
+[staticPage staticPage]
+
+[localePicker]
+forceUrl = 1
+==
+<!DOCTYPE html>
+<html lang="en">
+    {% partial 'layout/default/head/default' %}
+
+    <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+        {% component 'topLevelNavigation' %}
+
+        <main role="main">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="display-3">{{ page.title }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                {% page %}
+            </div>
+        </main>
+
+        {% partial 'layout/default/footer' %}
+        {% partial 'layout/default/scripts/default' %}
+        {% partial 'layout/common/flash' %}
+    </body>
+</html>
