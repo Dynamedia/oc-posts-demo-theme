@@ -92,6 +92,12 @@ body {
   width: 100%;
 }
 
+@media only screen and (min-width: 992px) {
+  .search-form {
+    margin-right: 15px;
+  }
+}
+
 .body.repeater-block {
   margin-bottom: 15px;
 }
