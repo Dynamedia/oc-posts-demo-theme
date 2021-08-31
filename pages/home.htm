@@ -35,7 +35,7 @@ We're not doing that here, we just want alt styles so main pages are designed ar
                     {% if this.theme.images.banner.default %}
                         <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
                     {% else %}
-                        <img src="https://picsum.photos/200/150" alt="A placeholder">
+                        <img src="{{ "assets/images/be-amazing.jpg" | theme }}" alt="A placeholder">
                     {% endif %}
                 </picture>
             </div>

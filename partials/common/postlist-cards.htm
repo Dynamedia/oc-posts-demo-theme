@@ -13,7 +13,7 @@
                         class = "card-img-top img-fluid " ~ post.images.list.class
                     %}
                {% else %}
-                   <img src="https://picsum.photos/200/300" alt="A placeholder" class="img-fluid card-img-top">
+                   <img src="{{ "assets/images/no-image.jpg" | theme }}" alt="A placeholder" class="img-fluid card-img-top">
                {% endif %}
                 <div class="card-body">
                     <h4 class="card-title">{{ post.title }}</h4>
