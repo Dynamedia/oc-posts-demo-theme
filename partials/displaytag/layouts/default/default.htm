@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h4 class="mb-4 mt-4">Posts Tagged #{{ tag.name }}</h4>
+        <h4 class="mb-4 mt-4">{{ 'general.posts-tagged' | _ }} #{{ tag.name }}</h4>
         {% partial "common/postlist-cards"
             posts = __SELF__.posts
             hideTag = true

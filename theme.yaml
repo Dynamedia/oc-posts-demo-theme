@@ -5,6 +5,7 @@ authorCode: "Dynamedia"
 homepage: "https://dynamedia.uk"
 code: "postsdemo"
 postsBackendCss: "/themes/postsdemo/assets/css/dist/backend-posts.css"
+translate: config/lang.yaml
 form:
     tabs:
         fields:

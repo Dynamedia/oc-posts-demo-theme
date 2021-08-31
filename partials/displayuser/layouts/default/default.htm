@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h4 class="mb-4 mt-4">Posts By {{ user.first_name }}</h4>
+        <h4 class="mb-4 mt-4">{{ 'posts.user.posts-by' | _ }} {{ user.first_name }}</h4>
         {% partial "common/postlist-cards"
             posts = __SELF__.posts
         %}

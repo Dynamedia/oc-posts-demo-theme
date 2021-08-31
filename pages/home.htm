@@ -7,14 +7,12 @@ is_hidden = 0
 postIds = "1,2"
 postsLimit = 2
 postsPerPage = 2
-noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 
 [listPosts latestPosts]
 notPostIds = "1,2"
 postsLimit = 5
 postsPerPage = 5
-noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 ==
 {#  ---
@@ -41,13 +39,7 @@ We're not doing that here, we just want alt styles so main pages are designed ar
                     {% endif %}
                 </picture>
             </div>
-            <div class="col-12 col-md-6">
-                <h1 class="display-3">October CMS Posts Plugin</h1>
-                <p>
-                    This is a simple Bootstrap 4 template with examples to help you set up the Posts plugin.
-                    You can get it free at <a href="https://github.com/Dynamedia/oc-posts-demo-theme">Github</a>.
-                </p>
-            </div>
+                {% content 'home-hero' %}
         </div>
     </div>
 </div>
@@ -63,13 +55,13 @@ We're not doing that here, we just want alt styles so main pages are designed ar
 <div class="content">
     <div class="row">
         <div class="col-12">
-            <h2 class="mt-4 mb-4">Featured Posts</h2>
+            <h2 class="mt-4 mb-4">{{ 'headings.featured-posts' | _ }}</h2>
             {% component 'featuredPosts' %}
 
-            <h2 class="mt-4 mb-4">Latest posts</h2>
+            <h2 class="mt-4 mb-4">{{ 'headings.latest-posts' | _ }}</h2>
             {% component 'latestPosts' %}
 
-            <p class="text-right"><a href="/latest">All Posts</a></p>
+            <p class="text-right"><a href="{{ 'latest' | page }}">{{ 'links.all-posts' | _ }}</a></p>
         </div>
     </div>
 </div>

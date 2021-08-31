@@ -7,12 +7,12 @@
                         <img src="{{ user.avatar.path }}" class="align-self-center rounded-circle" alt="User profile picture"/>
                     </div>
                     <div class="col-12 col-md-6">
-                        <h1 class="display-3">Posts by {{ user.first_name }} {{ user.last_name }}</h1>
+                        <h1 class="display-3">{{ 'posts.user.posts-by' | _ }} {{ user.first_name }} {{ user.last_name }}</h1>
                         <p>{{ user.profile.mini_biography | raw }}</p>
                     </div>
                 {% else %}
                     <div class="col-12">
-                        <h1 class="display-3">Posts by {{ user.first_name }} {{ user.last_name }}</h1>
+                        <h1 class="display-3">{{ 'posts.user.posts-by' | _ }} {{ user.first_name }} {{ user.last_name }}</h1>
                         <p>{{ user.profile.mini_biography | raw }}</p>
                     </div>
                 {% endif %}

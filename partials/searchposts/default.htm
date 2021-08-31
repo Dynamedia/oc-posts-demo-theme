@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="display-3">Search Results</h1>
-                <p>You searched for "{{ __SELF__.searchQuery }}"</p>
+                <h1 class="display-3">{{ 'headings.search-results' | _ }}</h1>
+                <p>{{ 'search.you-searched-for' | _ }} "{{ __SELF__.searchQuery }}"</p>
             </div>
         </div>
     </div>
@@ -14,11 +14,11 @@
 {% endput %}
 
 {% put page_title %}
-    <title>Search results for {{ __SELF__.searchQuery }} | {{ this.theme.site_brand }}</title>
+    <title>{{ 'search.search-results-for' | _ }} {{ __SELF__.searchQuery }} | {{ this.theme.site_brand }}</title>
 {% endput %}
 
 {% put page_description %}
-    <meta name="description" content="All posts from {{ this.theme.site_name }} matching the search query '{{ __SELF__.searchQuery | striptags }}'">
+    <meta name="description" content="{{ 'search.all-posts-from' | _ }} {{ this.theme.site_name }} {{ 'search.matching-the-query' | _ }} '{{ __SELF__.searchQuery | striptags }}'">
 {% endput %}
 
 {% partial "common/postlist-cards"

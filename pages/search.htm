@@ -1,10 +1,14 @@
-title = "Search"
 url = "/search"
 layout = "default"
+title = "Search"
 is_hidden = 0
 
 [searchPosts]
 postsPerPage = 11
-noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+
+[viewBag]
+localeUrl[de] = "/suche"
+localeTitle[de] = "Suche"
 ==
 {% component 'searchPosts' %}

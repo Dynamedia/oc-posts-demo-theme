@@ -34,12 +34,12 @@ sortOrder = "published_at desc"
     {% if this.layout.id == 'clean' %}
         {% partial "common/postlist-clean"
             posts = relatedPosts
-            title = "Related Posts"
+            title = "{{ 'general.related-posts' | _ }}"
         %}
     {% else %}
         {% partial "common/postlist-cards"
             posts = relatedPosts
-            title = "Related Posts"
+            title = "{{ 'general.related-posts' | _ }}"
         %}
     {% endif %}
 {% endif %}

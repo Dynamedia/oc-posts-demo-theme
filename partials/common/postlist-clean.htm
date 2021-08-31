@@ -14,6 +14,7 @@
                     class = "img-thumbnail float-left mr-1 image-fluid" ~ post.images.list.class
                 %}
                 <p class="small font-italic">{{ post.excerpt | striptags }}</p>
+                {# todo translate this #}
                 <p class="small float-left">Posted
                     {% if post.primary_category %} in <a href="{{ post.primary_category.url }}">{{ post.primary_category.name }}</a> {% endif %}
                     by <a href="{{ post.author.profile.url }}">{{ post.author.full_name }}</a></p>
