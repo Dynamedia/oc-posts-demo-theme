@@ -1,5 +1,7 @@
-{% if this.layout.id == 'clean' %}
-    {% partial __SELF__ ~ "::layouts/clean/default" %}
-{% else %}
-    {% partial __SELF__ ~ "::layouts/default/default" %}
-{%  endif %}
+{% if locales | length > 1 %}
+    {% if this.layout.id == 'clean' %}
+        {% partial __SELF__ ~ "::layouts/clean/default" %}
+    {% else %}
+        {% partial __SELF__ ~ "::layouts/default/default" %}
+    {%  endif %}
+{% endif %}
