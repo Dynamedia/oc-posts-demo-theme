@@ -7,6 +7,9 @@ body {
 main {
     min-height: 80vh;
 }
+.fa-rss {
+    color: orange;
+}
 footer {
     a {
         color: inherit;
@@ -17,9 +20,6 @@ footer {
     }
     .fa-fw {
         margin-right: 10px;
-    }
-    .fa-rss {
-        color: orange;
     }
     .fa-sitemap {
         color: yellowgreen;

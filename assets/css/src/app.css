@@ -8,6 +8,10 @@ main {
   min-height: 80vh;
 }
 
+.fa-rss {
+  color: orange;
+}
+
 footer a {
   color: inherit;
 }
@@ -17,9 +21,6 @@ footer a:hover {
 }
 footer .fa-fw {
   margin-right: 10px;
-}
-footer .fa-rss {
-  color: orange;
 }
 footer .fa-sitemap {
   color: yellowgreen;

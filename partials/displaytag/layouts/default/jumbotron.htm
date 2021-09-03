@@ -16,11 +16,13 @@
                     <div class="col-12 col-md-6">
                         <h1 class="display-3">#{{ tag.name }}</h1>
                         <p>{{ tag.excerpt | raw }}</p>
+                        <a href="{{ tag.url }}.rss"><i class="fas fa-fw fa-rss fa-2x"></i></a>
                     </div>
                 {% else %}
                     <div class="col-12">
                         <h1 class="display-3">#{{ tag.name }}</h1>
                         <p>{{ tag.excerpt | raw }}</p>
+                        <a href="{{ tag.url }}.rss"><i class="fas fa-fw fa-rss fa-2x"></i></a>
                     </div>
                 {% endif %}
             </div>
