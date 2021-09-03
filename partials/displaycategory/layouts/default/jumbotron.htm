@@ -15,13 +15,13 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <h1 class="display-3">{{ category.name }}</h1>
-                        <p>{{ category.excerpt | raw }}</p>
-                        <a href="{{ category.url }}.rss"><i class="fas fa-fw fa-rss fa-2x"></i></a>
+                        {{ category.excerpt | raw }}
+                        <a href="{{ category.url }}.rss"><i class="fas fa-rss fa-2x"></i></a>
                     </div>
                 {% else %}
                     <div class="col-12">
                         <h1 class="display-3">{{ category.name }}</h1>
-                        <p>{{ category.excerpt | raw }}</p>
+                        {{ category.excerpt | raw }}
                         <a href="{{ category.url }}.rss"><i class="fas fa-fw fa-rss fa-2x"></i></a>
                     </div>
                 {% endif %}

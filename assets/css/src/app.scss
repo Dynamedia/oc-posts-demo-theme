@@ -1,4 +1,4 @@
-// There is not musc here - This is a very simple demo theme
+// There is not much here - This is a very simple demo theme
 body {
   color: grey;
   padding-top: 3.5rem;
@@ -6,10 +6,12 @@ body {
 }
 main {
     min-height: 80vh;
+    .fa-rss {
+        color: #ff6700;
+        margin-left: -4px;
+    }
 }
-.fa-rss {
-    color: orange;
-}
+
 footer {
     a {
         color: inherit;
@@ -27,6 +29,9 @@ footer {
     .fa-thumbs-up {
         color: cyan;
     }
+    .fa-rss {
+        color: #ff6700;
+    }
     .fa-github {
         color: #fff;
         &.dark {
@@ -42,15 +47,26 @@ footer {
             color: #2867B2;
         }
     }
+    h4 {
+        margin-top: 15px;
+    }
     ul {
         width: fit-content;
         margin: 0 auto;
         li {
             margin-bottom: 10px;
+            &:last-of-type {
+              margin-bottom: 30px;
+            }
         }
     }
 }
 .jumbotron {
+    .container {
+        @media (max-width: 768px) {
+        padding: 0;
+     }
+    }
   img {
     width:100%;
     object-fit: cover;

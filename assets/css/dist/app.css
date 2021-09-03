@@ -7,9 +7,9 @@ body {
 main {
   min-height: 80vh;
 }
-
-.fa-rss {
-  color: orange;
+main .fa-rss {
+  color: #ff6700;
+  margin-left: -4px;
 }
 
 footer a {
@@ -28,6 +28,9 @@ footer .fa-sitemap {
 footer .fa-thumbs-up {
   color: cyan;
 }
+footer .fa-rss {
+  color: #ff6700;
+}
 footer .fa-github {
   color: #fff;
 }
@@ -43,6 +46,9 @@ footer .fa-linkedin {
 footer .fa-linkedin.dark {
   color: #2867B2;
 }
+footer h4 {
+  margin-top: 15px;
+}
 footer ul {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -52,7 +58,15 @@ footer ul {
 footer ul li {
   margin-bottom: 10px;
 }
+footer ul li:last-of-type {
+  margin-bottom: 30px;
+}
 
+@media (max-width: 768px) {
+  .jumbotron .container {
+    padding: 0;
+  }
+}
 .jumbotron img {
   width: 100%;
   -o-object-fit: cover;
