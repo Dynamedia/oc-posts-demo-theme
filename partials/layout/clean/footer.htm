@@ -1,3 +1,33 @@
-<footer class="container">
-    <p>&copy; <a href="https://dynamedia.uk">Dynamedia Limited</a> 2021</p>
+<footer class="bg-light text-dark py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <h4 class="text-center mb-4">{{ 'footer.this-theme' | _ }}</h4>
+                <ul class="list-unstyled">
+                    <li><a href="https://github.com/dynamedia/oc-posts-demo-theme" target="_blank"><i class="fab fa-fw fa-github dark"></i> {{ 'footer.on-github' | _ }}</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4">
+                <h4 class="text-center mb-4">{{ 'footer.the-author' | _ }}</h4>
+                <ul class="list-unstyled">
+                    <li><a href="https://twitter.com/robballantyne" target="_blank"><i class="fab fa-fw fa-twitter"></i> {{ 'footer.at-twitter' | _ }}</a></li>
+                    <li><a href="https://www.linkedin.com/in/reballantyne/" target="_blank"><i class="fab fa-fw fa-linkedin dark"></i> {{ 'footer.at-linkedin' | _ }}</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4">
+                <h4 class="text-center mb-4">{{ 'footer.useful-links' | _ }}</h4>
+                <ul class="list-unstyled">
+                    <li><a href="{{ 'main-rss' |page }}"><i class="fas fa-fw fa-rss"></i> {{ 'footer.rss-feed' | _ }}</a></li>
+                    <li><a href="{{ 'main-sitemap' |page }}"><i class="fa fa-fw fa-sitemap"></i> {{ 'footer.sitemap' | _ }}</a></li>
+                    <li><a href="{{ 'credits' |page }}"><i class="far fa-fw fa-thumbs-up"></i> {{ 'footer.credits' | _ }}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center">&copy; <a href="https://dynamedia.uk">Dynamedia Limited</a> 2021</p>
+            </div>
+        </div>
+    </div>
 </footer>

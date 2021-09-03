@@ -4,6 +4,52 @@ body {
   padding-top: 3.5rem;
   font-size: 1.1rem;
 }
+main {
+    min-height: 80vh;
+}
+footer {
+    a {
+        color: inherit;
+        &:hover {
+            color: lightskyblue;
+            text-decoration: none;
+        }
+    }
+    .fa-fw {
+        margin-right: 10px;
+    }
+    .fa-rss {
+        color: orange;
+    }
+    .fa-sitemap {
+        color: yellowgreen;
+    }
+    .fa-thumbs-up {
+        color: cyan;
+    }
+    .fa-github {
+        color: #fff;
+        &.dark {
+            color: #000;
+        }
+    }
+    .fa-twitter {
+        color: #1DA1F2;
+    }
+    .fa-linkedin {
+        color: #fff;
+        &.dark {
+            color: #2867B2;
+        }
+    }
+    ul {
+        width: fit-content;
+        margin: 0 auto;
+        li {
+            margin-bottom: 10px;
+        }
+    }
+}
 .jumbotron {
   img {
     width:100%;
@@ -150,6 +196,12 @@ body {
                 margin-bottom: 5px;
             }
         }
+    }
+}
+
+.form-control {
+    &.locale-picker {
+        padding-left: 0;
     }
 }
 

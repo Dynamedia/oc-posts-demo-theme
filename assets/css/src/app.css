@@ -4,6 +4,54 @@ body {
   font-size: 1.1rem;
 }
 
+main {
+  min-height: 80vh;
+}
+
+footer a {
+  color: inherit;
+}
+footer a:hover {
+  color: lightskyblue;
+  text-decoration: none;
+}
+footer .fa-fw {
+  margin-right: 10px;
+}
+footer .fa-rss {
+  color: orange;
+}
+footer .fa-sitemap {
+  color: yellowgreen;
+}
+footer .fa-thumbs-up {
+  color: cyan;
+}
+footer .fa-github {
+  color: #fff;
+}
+footer .fa-github.dark {
+  color: #000;
+}
+footer .fa-twitter {
+  color: #1DA1F2;
+}
+footer .fa-linkedin {
+  color: #fff;
+}
+footer .fa-linkedin.dark {
+  color: #2867B2;
+}
+footer ul {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+footer ul li {
+  margin-bottom: 10px;
+}
+
 .jumbotron img {
   width: 100%;
   -o-object-fit: cover;
@@ -145,4 +193,8 @@ body {
     margin-left: 10px;
     margin-bottom: 5px;
   }
+}
+
+.form-control.locale-picker {
+  padding-left: 0;
 }
