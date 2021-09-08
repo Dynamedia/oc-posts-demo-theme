@@ -134,8 +134,8 @@ footer ul li:last-of-type {
   height: 270px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 0 0;
-     object-position: 0 0;
+  -o-object-position: center;
+     object-position: center;
 }
 .card-deck .card .card-footer {
   min-height: 80px;
