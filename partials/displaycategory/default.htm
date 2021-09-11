@@ -1,4 +1,6 @@
-{% partial "common/utility/seo" object = __SELF__.category %}
+{% put head %}
+    {{ __SELF__.category.html_head | raw }}
+{% endput %}
 
 {# Do some layout logic here... #}
 

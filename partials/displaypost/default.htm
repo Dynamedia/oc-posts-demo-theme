@@ -1,9 +1,5 @@
-{% partial "common/utility/seo" object = __SELF__.post %}
-
-{% put seo_json %}
-    <script type="application/ld+json">
-        {{ __SELF__.post.seo_schema | json_encode(constant('JSON_PRETTY_PRINT')) | raw  }}
-    </script>
+{% put head %}
+    {{ __SELF__.post.html_head | raw }}
 {% endput %}
 
 {# --- Logic here allows us to render the post differenly per layout, if desired. Fallback to default/default --- #}
