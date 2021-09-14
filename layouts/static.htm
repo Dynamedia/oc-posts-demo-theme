@@ -3,10 +3,14 @@ description = "Static Pages Default layout"
 [staticMenu topLevelNavigation]
 code = "top-level-navigation"
 
-[staticPage staticPage]
+[staticPage]
+useContent = 1
+default = 0
 
 [localePicker]
 forceUrl = 1
+
+[alternateHrefLangElements]
 ==
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +18,7 @@ forceUrl = 1
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% component 'alternateHrefLangElements' %}
         {{ page.html_head | raw }}
         {% partial "layout/default/head/styles" %}
         {% partial "layout/common/head/google-analytics" %}
@@ -44,5 +49,3 @@ forceUrl = 1
         {% partial 'layout/common/flash' %}
     </body>
 </html>
-
-

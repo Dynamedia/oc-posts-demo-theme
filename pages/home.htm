@@ -14,12 +14,18 @@ notPostIds = "1,2"
 postsLimit = 5
 postsPerPage = 5
 sortOrder = "published_at desc"
+
+[alternateHrefLangElements]
 ==
 {#  ---
 You could easily apply some layout logic here if you wanted to build a very dynamic theme.
 Eg, if you wanted a sidebar on all pages you could put the featured/latest posts components in the layout files.
 We're not doing that here, we just want alt styles so main pages are designed around the default layout only and components live on pages.
 --- #}
+
+{% put head %}
+    {% component 'alternateHrefLangElements' %}
+{% endput %}
 
 {% put jumbotron %}
 <div class="jumbotron">

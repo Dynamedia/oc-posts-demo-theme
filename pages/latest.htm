@@ -13,9 +13,15 @@ sortOrder = "published_at desc"
 localeUrl[en] = "/latest"
 localeUrl[de] = "/latest-de"
 localeTitle[de] = "Latest De"
-==
-{% put jumbotron %}
 
+[alternateHrefLangElements]
+==
+
+{% put head %}
+    {% component 'alternateHrefLangElements' %}
+{% endput %}
+
+{% put jumbotron %}
 <div class="jumbotron">
     <div class="container">
         <div class="row">
@@ -43,7 +49,6 @@ localeTitle[de] = "Latest De"
         </div>
     </div>
 </div>
-
 {% endput %}
 
 {% component 'allPosts' %}
