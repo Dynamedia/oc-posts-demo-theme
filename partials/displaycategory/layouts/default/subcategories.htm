@@ -1,0 +1,16 @@
+{# Helps with silo structure #}
+
+{% if category.children | length %}
+    <div class="row">
+        <div class="container px-0 py-2 bg-light">
+            <div class="col-12">
+                {{ 'category.list-subcategories' | _ }}
+                <ul class="list-inline py-0 my-0" style="display: inline-block">
+                    {% for child in category.children %}
+                        <li class="list-inline-item"><a href="{{ child.url }}">{{ child.name }}</a>{{ not loop.last ? '<span>,</span>' : null }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}

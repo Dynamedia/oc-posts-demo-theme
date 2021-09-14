@@ -28,6 +28,7 @@ en:
     footer.on-github: "On Github"
     footer.at-twitter: "At Twitter"
     footer.at-linkedin: "At LinkedIn"
+    category.list-subcategories: "Read more in"
 
 de:
     links.all-posts: "Alle Beiträge"
@@ -59,4 +60,5 @@ de:
     footer.on-github: "Auf Github"
     footer.at-twitter: "Bei Twitter"
     footer.at-linkedin: "Bei LinkedIn"
+    category.list-subcategories: "Lesen Sie mehr in"
 

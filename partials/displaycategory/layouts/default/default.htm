@@ -1,5 +1,9 @@
 {% partial __SELF__ ~ "::layouts/default/jumbotron" category = category %}
 
+{% partial __SELF__ ~ "::layouts/default/subcategories"
+    category = category
+%}
+
 <div class="row">
     <div class="col-12">
         {% partial __SELF__ ~ "::layouts/default/main"
