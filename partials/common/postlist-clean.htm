@@ -15,9 +15,11 @@
                 %}
                 <p class="small font-italic">{{ post.excerpt | striptags }}</p>
                 {# todo translate this #}
-                <p class="small float-left">Posted
-                    {% if post.primary_category %} in <a href="{{ post.primary_category.url }}">{{ post.primary_category.name }}</a> {% endif %}
-                    by <a href="{{ post.author.profile.url }}">{{ post.author.full_name }}</a></p>
+                <p class="small float-left">
+                    {% if not hideCategory %}
+                        {% if post.primary_category %} in <a href="{{ post.primary_category.url }}">{{ post.primary_category.name }}</a> {% endif %}
+                    {% endif %}
+                    By <a href="{{ post.author.profile.url }}">{{ post.author.full_name }}</a></p>
             </div>
         {% endfor %}
     </div>

@@ -2,11 +2,15 @@
     {{ __SELF__.category.html_head | raw }}
 {% endput %}
 
-{# Do some layout logic here... #}
 
-{% partial __SELF__ ~ "::layouts/default/default"
-    category = __SELF__.category
-%}
-
+{% if this.layout.id == 'clean' %}
+    {% partial __SELF__ ~ "::layouts/clean/default"
+        category = __SELF__.category
+    %}
+{% else %}
+    {% partial __SELF__ ~ "::layouts/default/default"
+        category = __SELF__.category
+    %}
+{%  endif %}
 
 

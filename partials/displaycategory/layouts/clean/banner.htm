@@ -1,0 +1,14 @@
+{% if category.images.banner.default %}
+    <div class="row">
+        <div class="col-12 mt-4">
+            <picture class="{{ category.images.banner.class }}">
+                {% for item in category.images.banner.responsive %}
+                    {% if item.image and item.screen_width %}
+                        <source srcset="{{ item.image|media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
+                    {% endif %}
+                {% endfor %}
+                <img class="img-fluid" src="{{ category.images.banner.default | media }}" alt="{{ category.images.banner.alt }}"/>
+            </picture>
+        </div>
+    </div>
+{% endif %}
