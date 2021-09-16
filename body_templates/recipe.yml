@@ -1,0 +1,12 @@
+name: My Recipe Template
+partial: recipe
+tabs:
+    fields:
+        intro:
+            type: richeditor
+            label: Introduction
+        outro:
+            type: richeditor
+            label: Outro
+
+
