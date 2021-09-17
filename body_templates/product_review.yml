@@ -1,0 +1,67 @@
+name: theme.postsdemo::lang.postbody_templates.product_review.name
+partial: product_review
+tabs:
+    fields:
+        product_name:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_name
+
+        product_buy_store:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_buy_store
+
+        product_buy_url:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_buy_url
+
+        product_rating:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_rating
+            type: dropdown
+            options:
+                1: 1 Star
+                2: 2 Star
+                3: 3 Star
+                4: 4 Star
+                5: 5 Star
+
+        product_intro:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.introduction
+            type: richeditor
+            size: huge
+
+        product_images:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.images
+            type: repeater
+            form:
+                fields:
+                    image:
+                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.image
+                        type: mediafinder
+                    alt_text:
+                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.alt_text
+                    caption:
+                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.caption
+
+        product_positives:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.positives
+            type: repeater
+            form:
+                fields:
+                    reason:
+                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.reason
+
+        product_negatives:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.negatives
+            type: repeater
+            form:
+                fields:
+                    reason:
+                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.reason
+
+        product_verdict:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.verdict
+            type: richeditor
+            size: huge
+
+

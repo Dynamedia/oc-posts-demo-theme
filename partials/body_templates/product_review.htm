@@ -1,0 +1,81 @@
+<style>
+    .fas.active {
+        color: orange;
+    }
+    .fa-thumbs-up {
+        color: lightgreen;
+    }
+    .fa-thumbs-down {
+        color: indianred;
+    }
+    figure {
+        margin: 15px auto;
+        max-width: 85%;
+        border: 1px solid #fafafa;
+    }
+    img {
+        max-width: 100%;
+    }
+</style>
+<div class="row">
+
+    <div class="col-12 my-2">
+        <p>{{ 'postbody_template.product_review.title.where_to_buy' | _ }}: <a target="_blank" href="{{ product_buy_url }}">{{ product_buy_store }}</a></p>
+        <p>{{ 'postbody_template.product_review.title.product_score' | _ }}:
+        {% for i in range(1, 5) %}
+            <i class="fas fa-star {{ loop.index <= product_rating ? 'active' : ''}}"></i>
+        {% endfor %}
+        </p>
+    </div>
+
+    <div class="col-12 my-2">
+        {{ product_intro | raw }}
+    </div>
+
+    <div class="col-12 my-2">
+        <h3>{{ 'postbody_template.product_review.title.images' | _ }}</h3>
+        <div class="row">
+            {% for item in product_images %}
+                <div class="col-12">
+                    <figure>
+                        <img src="{{ item.image | media }}" alt="item.alt_text">
+                        {% if item.caption %}
+                            <figcaption class="p-1">{{ item.caption }}</figcaption>
+                        {% endif %}
+                    </figure>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-12 my-2">
+        <h3>{{ 'postbody_template.product_review.title.positives' | _ }}</h3>
+        <ul class="list-unstyled">
+            {% for item in product_positives %}
+            <li><i class="fas fa-thumbs-up"></i> {{ item.reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-12 my-2">
+        <h3>{{ 'postbody_template.product_review.title.negatives' | _ }}</h3>
+        <ul class="list-unstyled">
+            {% for item in product_negatives %}
+                <li><i class="fas fa-thumbs-down"></i> {{ item.reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-12 my-2">
+        <h3>{{ 'postbody_template.product_review.title.verdict' | _ }}</h3>
+        {{ product_verdict | raw }}
+    </div>
+
+    {% if product_rating >= 4 %}
+        <div class="col-12 my-2">
+            <a target="_blank" href="{{ product_buy_url }}">
+                {{ 'postbody_template.product_review.title.buy_link' | _ ({ product: product_name }) }}
+            </a>
+        </div>
+    {% endif %}
+</div>

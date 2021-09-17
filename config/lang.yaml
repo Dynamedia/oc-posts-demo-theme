@@ -30,6 +30,18 @@ en:
     footer.at-linkedin: "At LinkedIn"
     category.list-subcategories: "Read more in"
 
+    postbody_template.recipe.title.ingredients: "Ingredients"
+    postbody_template.recipe.title.prep_time: "Prep Time"
+    postbody_template.recipe.title.method: "Method"
+
+    postbody_template.product_review.title.where_to_buy: "Where to buy"
+    postbody_template.product_review.title.product_score: "Product score"
+    postbody_template.product_review.title.images: "Images"
+    postbody_template.product_review.title.positives: "The good points"
+    postbody_template.product_review.title.negatives: "What's not so good"
+    postbody_template.product_review.title.verdict: "Our Verdict"
+    postbody_template.product_review.title.buy_link: "Buy :product Now"
+
 de:
     links.all-posts: "Alle Beiträge"
     links.read-more: "Weiterlesen..."
@@ -61,4 +73,16 @@ de:
     footer.at-twitter: "Bei Twitter"
     footer.at-linkedin: "Bei LinkedIn"
     category.list-subcategories: "Lesen Sie mehr in"
+
+    postbody_template.recipe.title.ingredients: "Zutaten"
+    postbody_template.recipe.title.prep_time: "Vorbereitungszeit"
+    postbody_template.recipe.title.method: "Methode"
+
+    postbody_template.product_review.title.where_to_buy: "Wo zu kaufen"
+    postbody_template.product_review.title.product_score: "Produktbewertung"
+    postbody_template.product_review.title.images: "Bilder"
+    postbody_template.product_review.title.positives: "Die guten Punkte"
+    postbody_template.product_review.title.negatives: "Was ist nicht so gut"
+    postbody_template.product_review.title.verdict: "Unser Urteil"
+    postbody_template.product_review.title.buy_link: "Jetzt :product kaufen"
 

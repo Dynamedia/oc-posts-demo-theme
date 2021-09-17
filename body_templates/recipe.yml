@@ -1,12 +1,57 @@
-name: My Recipe Template
+name: theme.postsdemo::lang.postbody_templates.recipe.name
 partial: recipe
 tabs:
     fields:
-        intro:
+        prologue:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.prologue
             type: richeditor
-            label: Introduction
-        outro:
+            size: huge
+        prep_time:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.prep_time
+            type: text
+        ingredients_form:
+            type: nestedform
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.ingredients
+            showPanel: false
+            usePanelStyles: false
+            form:
+                secondaryTabs:
+                    fields:
+                        ingredients:
+                            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.ingredients_list
+                            type: repeater
+                            form:
+                                fields:
+                                    name:
+                                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.name
+                                    amount:
+                                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.amount
+                        ingredients_image:
+                            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.ingredients_image
+                            type: mediafinder
+        method_intro:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.method
+            label: Method Introduction
             type: richeditor
-            label: Outro
+
+        method_steps:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.method
+            type: repeater
+            form:
+                fields:
+                    detail:
+                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.step_details
+
+        epilogue:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.epilogue
+            type: richeditor
+            size: huge
+
+
+
+
+
+
 
 

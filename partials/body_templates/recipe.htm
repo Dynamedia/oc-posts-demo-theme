@@ -1,5 +1,64 @@
-{{ intro | raw }}
+{# Feel free to include other partials to build modular templates #}
+{# Translation keys are used heavily to make post translation very simple #}
+{# Inline styles here but you'll probably just incorporate this into your layout css
+   - Our demo theme always provides bootstrap 4 so we can rely on those styles here
+#}
+<style>
+.ingredients {
+    margin-top: 10px;
+    background-color: #fafafa;
+}
+.ingredients-list li {
+    padding: 2px;
+}
+.ingredients img {
+    max-width: 90%;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+</style>
 
-<hr class="pagebreak">
+<div class="post-body-recipe">
+    <div class="row">
+        <div class="col-12">
+            <h5>{{ 'postbody_template.recipe.title.prep_time' | _ }}: {{ prep_time }}</h5>
+            {{ prologue | raw }}
+        </div>
+    </div>
 
-{{ outro | raw }}
+    <h3 class="my-2">{{ 'postbody_template.recipe.title.ingredients' | _ }}</h3>
+    <div class="ingredients row py-2">
+            <ul class="ingredients-list list-unstyled col-12 col-md-6">
+            {% for item in ingredients_form.ingredients %}
+                <li>{{ item.name }} - {{ item.amount }}</li>
+            {% endfor %}
+            </ul>
+
+            {% if ingredients_form.ingredients_image %}
+                <div class="col-12 col-md-6 text-center">
+                    <img class="p-3" src="{{ ingredients_form.ingredients_image | media }}">
+                </div>
+            {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="my-2">{{ 'postbody_template.recipe.title.method' | _ }}</h3>
+
+            {{ method_intro | raw }}
+
+            <ol class="method-list">
+                {% for item in method_steps %}
+                    <li>{{ item.detail }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 my-2">
+            {{ epilogue | raw }}
+        </div>
+    </div>
+
+</div>
