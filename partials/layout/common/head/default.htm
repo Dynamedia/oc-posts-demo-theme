@@ -2,6 +2,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% placeholder head %}
+{% placeholder head default %}
+
+{% component 'alternateHrefLangElements' %}
+
+{% if this.page.meta_title %}
+    <title>{{ this.page.meta_title }}</title>
+{% else %}
+     <title>{{ this.page.title }}</title>
+{% endif %}
+
+{% endplaceholder %}
+
 {% partial "layout/common/head/google-analytics" %}
 
