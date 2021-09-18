@@ -24,27 +24,24 @@ localeTitle[de] = "Neueste"
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            {% if this.theme.images.banner.default %}
-                <div class="col-12 col-md-6">
-                    <picture class="{{this.theme.images.banner.class}}">
-                        {% for entry in this.theme.images.banner.responsive %}
-                            {% if entry.image and entry.screen_width %}
-                                <source srcset="{{entry.image|media}}" media="({{entry.media_query}}: {{entry.screen_width}}px)">
-                            {% endif %}
-                        {% endfor %}
-                            <img src="{{this.theme.images.banner.default | media}}" alt="{{this.theme.images.banner.alt}}"/>
+            <div class="col-12 col-md-6">
+                {% if this.theme.images.banner.default %}
+                    {% partial "common/helpers/image"
+                        image = this.theme.images.banner.default
+                        responsive = this.theme.images.banner.responsive
+                        alt = this.theme.images.banner.alt
+                        class = this.theme.images.banner.class
+                    %}
+                {% else %}
+                    <picture>
+                        <img src="{{ "assets/images/be-amazing.jpg" | theme }}" alt="A placeholder">
                     </picture>
-                </div>
+                {% endif %}
+            </div>
                 <div class="col-12 col-md-6">
                     <h1 class="display-3">{{ 'headings.latest-posts' | _ }}</h1>
                     <p>{{ 'general.paginated-posts-list' | _ }}</p>
-                </div>
-            {% else %}
-                <div class="col-12 col-md-6">
-                    <h1 class="display-3">{{ 'headings.latest-posts' | _ }}</h1>
-                    <p>{{ 'general.paginated-posts-list' | _ }}</p>
-                </div>
-            {% endif %}
+            </div>
         </div>
     </div>
 </div>
