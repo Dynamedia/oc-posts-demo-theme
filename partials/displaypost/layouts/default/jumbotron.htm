@@ -5,15 +5,14 @@
         <div class="row">
             {% if post.images.banner.default %}
             <div class="col-12 col-md-6">
-                <picture class="{{ post.images.banner.class }}">
-                    {% for item in post.images.banner.responsive %}
-                    {% if item.image and item.screen_width %}
-                    <source srcset="{{ item.image | media }}" media="({{ item.media_query }}: {{ item.screen_width }}px)">
-                    {% endif %}
-                    {% endfor %}
-                    <img src="{{ post.images.banner.default | media }}" alt="{{ post.images.banner.alt }}"/>
-                </picture>
+                    {% partial "common/helpers/image"
+                        image = post.images.banner.default
+                        responsive = post.images.banner.responsive
+                        alt = post.images.banner.alt
+                        class = post.images.banner.class
+                    %}
             </div>
+            
             <div class="col-12 col-md-6">
                 <h1 class="display-3">{{ post.title }}</h1>
                 <p>{{ post.excerpt | raw  }}</p>

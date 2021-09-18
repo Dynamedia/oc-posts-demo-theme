@@ -8,7 +8,7 @@
                {% if post.images.list.default %}
                     {% partial "common/helpers/image"
                         image = post.images.list.default
-                        srcset = post.images.list.responsive
+                        responsive = post.images.list.responsive
                         alt = post.images.list.alt
                         class = "card-img-top img-fluid " ~ post.images.list.class
                     %}
