@@ -1,14 +1,14 @@
-<picture class="{{ class }}" style="{{ style }}">
+<picture class="{{ class }}" style="max-width:100%; {{ style }}">
     {% for entry in responsive %}
         {% if entry.image and entry.screen_width %}
             <source srcset="{{ entry.image | media }}" media="({{ entry.media_query }}: {{ entry.screen_width }}px)">
         {% endif %}
     {% endfor %}
     {% if image %}
-        <img src="{{image | media}}" alt="{{alt}}" class="{{ class }}" style="{{ style }}"
+        <img src="{{image | media}}" alt="{{alt}}" class="{{ class }}" style="max-width:100%; {{ style }}"
             onerror="this.src='{{ 'assets/images/no-image.jpg' | theme }}';this.onerror='';"
             />
     {% else %}
-        <img src="{{ 'assets/images/no-image.jpg' | theme }}" alt="{{alt}}" class="{{ class }}" style="{{ style }}" />
+        <img src="{{ 'assets/images/no-image.jpg' | theme }}" alt="{{alt}}" class="{{ class }}" style="max-width:100%; {{ style }}" />
     {% endif %}
 </picture>
