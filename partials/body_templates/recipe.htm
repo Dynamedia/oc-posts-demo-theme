@@ -29,11 +29,34 @@ foreach ($templateData['ingredients_form']['ingredients'] as $item) {
 }
 $recipe->recipeIngredient($ingredients);
 
+// at least one image is required
+$imageArray = [];
+if(!empty($this['post']->images['banner']['default'])) {
+    $imageObject = Spatie\SchemaOrg\Schema::imageObject()
+        ->url(\Cms\Classes\MediaLibrary::url($this['post']->images['banner']['default']));
+    $imageArray[] = $imageObject;
+}
+$recipe->image($imageArray);
+
+
+
 // Generate the howto
 $instructions = [];
+$i = 0;
 foreach ($templateData['method_steps'] as $step) {
-    $howToStep = \Spatie\SchemaOrg\Schema::howToStep();
+    $i++;
+    $howToStep = \Spatie\SchemaOrg\Schema::howToStep()
+        ->name($step['step_title'])
+        ->text($step['step_detail'])
+        ->url($this['post']->url . "#step{$i}");
+    if ($step['step_image']) {
+        $stepImage = \Spatie\SchemaOrg\Schema::imageObject()
+            ->url(\Cms\Classes\MediaLibrary::url($step['step_image']));
+        $howToStep->image($stepImage);
+    }
+    $instructions[] = $howToStep;
 }
+$recipe->recipeInstructions($instructions);
 
 
 $this['schema_script'] = $recipe->toScript();
@@ -62,11 +85,15 @@ $this['schema_script'] = $recipe->toScript();
 }
 
 .method figure {
+    display: block;
     max-width: 100%;
     padding: 10px;
+    margin: 10px auto;
+    text-align: center;
 }
 .method figure img {
     max-width: 100%;
+    margin: 0 auto;
 }
 </style>
 
