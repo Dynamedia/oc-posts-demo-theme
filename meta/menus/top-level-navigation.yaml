@@ -1,6 +1,6 @@
 items:
     -
-        title: Uncategorized
+        title: 'Simple Posts'
         nesting: 0
         type: posts-category
         code: ''
@@ -9,7 +9,37 @@ items:
         viewBag:
             locale:
                 de:
-                    title: Unkategorisiert
+                    title: 'Einfache Beiträge'
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Repeater Posts'
+        nesting: 0
+        type: posts-category
+        code: ''
+        reference: '2'
+        replace: 0
+        viewBag:
+            locale:
+                de:
+                    title: Repeater-Beiträge
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Structured Posts'
+        nesting: 0
+        type: posts-category
+        code: ''
+        reference: '3'
+        replace: 0
+        viewBag:
+            locale:
+                de:
+                    title: 'strukturierte Beiträge'
                     url: ''
             isHidden: '0'
             cssClass: ''

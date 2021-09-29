@@ -29,6 +29,11 @@ tabs:
             tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.introduction
             type: richeditor
             size: huge
+            
+        product_review_body:
+            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.review_body
+            type: richeditor
+            size: huge
 
         product_images:
             tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.images

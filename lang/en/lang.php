@@ -26,6 +26,7 @@
             'tabs' => [
                 'detail'        => 'Detail',
                 'introduction'  => 'Introduction',
+                'review_body'   => 'Review Body',
                 'images'        => 'Images',
                 'positives'     => 'Positives',
                 'negatives'     => 'Negatives',
