@@ -4,36 +4,36 @@ function onStart()
     // This render is cached, so we cannot add to the graph
     // We will print our schema separately and reference the graph
     $graph = \App::make('dynamedia.posts.graph');
-    
+
     $templateData = $this['template'];
-    
+
     $review = \Spatie\SchemaOrg\Schema::review()
         ->setProperty("@id", $this['post']->url . "#productReview")
         ->setProperty('mainEntityOfPage', ["@id" => $graph->getArticleId()])
         ->setProperty('isPartOf', ["@id" => $graph->getArticleId()])
         ->setProperty('author', ["@id" => $graph->getAuthorId()]);
-        
-    
+
+
     $product = \Spatie\SchemaOrg\Schema::product()
         ->setProperty("@id", $this['post']->url . "#reviewedProduct")
         ->setProperty('review', ["@id" => $this['post']->url . "#productReview"])
-        ->name($templateData['product_name']);
-        
+        ->name($templateData['product_name'])
+        ->description($templateData['product_description'])
+        ->sameAs($templateData['product_info_url']);
+
     if (!empty($templateData['product_images'][0]['image'])) {
         $productImage = \Spatie\SchemaOrg\Schema::imageObject()
             ->url(\Cms\Classes\MediaLibrary::url($templateData['product_images'][0]['image']));
         $product->image($productImage);
     }
-    
+
     $rating = \Spatie\SchemaOrg\Schema::rating()
         ->ratingValue($templateData['product_rating']);
-    
+
     $review->itemReviewed($product)
         ->reviewRating($rating);
-    
+
     $this['schema_script'] = $review->toScript();
-    
-    
 }
 ==
 
@@ -72,7 +72,7 @@ function onStart()
     <div class="col-12 my-2">
         {{ template.product_intro | raw }}
     </div>
-    
+
     <div class="col-12 my-2">
         {{ template.product_review_body | raw }}
     </div>

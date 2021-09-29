@@ -1,8 +1,57 @@
+==
+function onStart()
+{
+// This render is cached, so we cannot add to the graph
+// We will print our schema separately and reference the graph
+$graph = \App::make('dynamedia.posts.graph');
+
+$templateData = $this['template'];
+
+$recipe = \Spatie\SchemaOrg\Schema::recipe()
+    ->setProperty('mainEntityOfPage', ["@id" => $graph->getArticleId()])
+    ->setProperty('isPartOf', ["@id" => $graph->getArticleId()])
+    ->setProperty('author', ["@id" => $graph->getAuthorId()])
+    ->name($this['post']->title)
+    ->description(strip_tags($this['post']->excerpt))
+    ->datePublished($this['post']->published_at)
+    // You can do this better ;-)
+    ->prepTime("PT" . $templateData['prep_time_hours'] . "H" . $templateData['prep_time_minutes'] . "M")
+    ->cookTime("PT" . $templateData['cook_time_hours'] . "H" . $templateData['cook_time_minutes'] . "M")
+    ->totalTime("PT" . $templateData['total_time_hours'] . "H" . $templateData['total_time_minutes'] . "M")
+    ->recipeCategory($templateData['category'])
+    ->recipeCuisine($templateData['cuisine'])
+    ->recipeYield($templateData['servings']);
+
+// Create and add the ingredients
+$ingredients = [];
+foreach ($templateData['ingredients_form']['ingredients'] as $item) {
+    $ingredients[] = "{$item['amount']} {$item['name']}";
+}
+$recipe->recipeIngredient($ingredients);
+
+// Generate the howto
+foreach ($templateData['method_steps'] as $step) {
+    $howToStep = \Spatie\SchemaOrg\Schema::howToStep();
+}
+dump($templateData);
+$instructions = [];
+
+
+
+
+
+dump($recipe);
+$this['schema_script'] = $recipe->toScript();
+}
+==
 {# Feel free to include other partials to build modular templates #}
 {# Translation keys are used heavily to make post translation very simple #}
 {# Inline styles here but you'll probably just incorporate this into your layout css
    - Our demo theme always provides bootstrap 4 so we can rely on those styles here
 #}
+
+{{ schema_script | raw }}
+
 <style>
 .ingredients {
     margin-top: 10px;
@@ -16,27 +65,35 @@
     background-color: #ffffff;
     border-radius: 10px;
 }
+
+.method figure {
+    max-width: 100%;
+    padding: 10px;
+}
+.method figure img {
+    max-width: 100%;
+}
 </style>
 
 <div class="post-body-recipe">
     <div class="row">
         <div class="col-12">
-            <h5>{{ 'postbody_template.recipe.title.prep_time' | _ }}: {{ prep_time }}</h5>
-            {{ prologue | raw }}
+            <h5>{{ 'postbody_template.recipe.title.prep_time' | _ }}: {{ template.prep_time }}</h5>
+            {{ template.prologue | raw }}
         </div>
     </div>
 
     <h3 class="my-2">{{ 'postbody_template.recipe.title.ingredients' | _ }}</h3>
     <div class="ingredients row py-2">
             <ul class="ingredients-list list-unstyled col-12 col-md-6">
-            {% for item in ingredients_form.ingredients %}
+            {% for item in template.ingredients_form.ingredients %}
                 <li>{{ item.name }} - {{ item.amount }}</li>
             {% endfor %}
             </ul>
 
-            {% if ingredients_form.ingredients_image %}
+            {% if template.ingredients_form.ingredients_image %}
                 <div class="col-12 col-md-6 text-center">
-                    <img class="p-3" src="{{ ingredients_form.ingredients_image | media }}">
+                    <img class="p-3" src="{{ template.ingredients_form.ingredients_image | media }}">
                 </div>
             {% endif %}
     </div>
@@ -45,19 +102,27 @@
         <div class="col-12">
             <h3 class="my-2">{{ 'postbody_template.recipe.title.method' | _ }}</h3>
 
-            {{ method_intro | raw }}
+            {{ template.method_intro | raw }}
+            <div class="method">
+            {% for item in template.method_steps %}
+                <div class="method-step" id="step{{ loop.index }}">
+                    <h5>{{ item.step_title }}</h5>
+                    <p>{{ item.step_detail }}</p>
+                    {% if item.step_image %}
+                    <figure>
+                        <img class="step-image" src="{{ item.step_image | media }}" alt="{{ item.step_title }}">
+                    </figure>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
 
-            <ol class="method-list">
-                {% for item in method_steps %}
-                    <li>{{ item.detail }}</li>
-                {% endfor %}
-            </ol>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12 my-2">
-            {{ epilogue | raw }}
+            {{ template.epilogue | raw }}
         </div>
     </div>
 

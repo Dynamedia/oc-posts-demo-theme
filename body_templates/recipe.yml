@@ -6,10 +6,67 @@ tabs:
             tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.prologue
             type: richeditor
             size: huge
-        prep_time:
+
+        category:
             tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.recipe.labels.prep_time
-            type: text
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.category
+
+        cuisine:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.cuisine
+
+        servings:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.servings
+
+        serving_calories:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.detail
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.serving_calories
+
+        prep_time_hours:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.timing
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.prep_time_hours
+            span: left
+            type: dropdown
+            options: \Dynamedia\Posts\Classes\Helpers\Form::getHours
+
+        prep_time_minutes:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.timing
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.prep_time_minutes
+            span: right
+            type: dropdown
+            options: \Dynamedia\Posts\Classes\Helpers\Form::getMinutes
+
+        cook_time_hours:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.timing
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.cook_time_hours
+            span: left
+            type: dropdown
+            options: \Dynamedia\Posts\Classes\Helpers\Form::getHours
+
+        cook_time_minutes:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.timing
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.cook_time_minutes
+            span: right
+            type: dropdown
+            options: \Dynamedia\Posts\Classes\Helpers\Form::getMinutes
+
+        total_time_hours:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.timing
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.total_time_hours
+            span: left
+            type: dropdown
+            options: \Dynamedia\Posts\Classes\Helpers\Form::getHours
+
+        total_time_minutes:
+            tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.timing
+            label: theme.postsdemo::lang.postbody_templates.recipe.labels.total_time_minutes
+            span: right
+            type: dropdown
+            options: \Dynamedia\Posts\Classes\Helpers\Form::getMinutes
+
+
+
         ingredients_form:
             type: nestedform
             tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.ingredients
@@ -27,6 +84,7 @@ tabs:
                                         label: theme.postsdemo::lang.postbody_templates.recipe.labels.name
                                     amount:
                                         label: theme.postsdemo::lang.postbody_templates.recipe.labels.amount
+
                         ingredients_image:
                             tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.ingredients_image
                             type: mediafinder
@@ -40,8 +98,13 @@ tabs:
             type: repeater
             form:
                 fields:
-                    detail:
-                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.step_details
+                    step_title:
+                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.step_title
+                    step_detail:
+                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.step_detail
+                    step_image:
+                        label: theme.postsdemo::lang.postbody_templates.recipe.labels.image
+                        type: mediafinder
 
         epilogue:
             tab: theme.postsdemo::lang.postbody_templates.recipe.tabs.epilogue
