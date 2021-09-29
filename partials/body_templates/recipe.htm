@@ -30,17 +30,12 @@ foreach ($templateData['ingredients_form']['ingredients'] as $item) {
 $recipe->recipeIngredient($ingredients);
 
 // Generate the howto
+$instructions = [];
 foreach ($templateData['method_steps'] as $step) {
     $howToStep = \Spatie\SchemaOrg\Schema::howToStep();
 }
-dump($templateData);
-$instructions = [];
 
 
-
-
-
-dump($recipe);
 $this['schema_script'] = $recipe->toScript();
 }
 ==
