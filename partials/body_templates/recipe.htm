@@ -23,15 +23,17 @@ $recipe = \Spatie\SchemaOrg\Schema::recipe()
     ->recipeYield($templateData['servings']);
 
 // Create and add the ingredients
-$ingredients = [];
-foreach ($templateData['ingredients_form']['ingredients'] as $item) {
-    $ingredients[] = "{$item['amount']} {$item['name']}";
+if (!empty($templateData['ingredients_form']['ingredients'])) {
+    $ingredients = [];
+    foreach ($templateData['ingredients_form']['ingredients'] as $item) {
+        $ingredients[] = "{$item['amount']} {$item['name']}";
+    }
+    $recipe->recipeIngredient($ingredients);
 }
-$recipe->recipeIngredient($ingredients);
 
 // at least one image is required
 $imageArray = [];
-if(!empty($this['post']->images['banner']['default'])) {
+if (!empty($this['post']->images['banner']['default'])) {
     $imageObject = Spatie\SchemaOrg\Schema::imageObject()
         ->url(\Cms\Classes\MediaLibrary::url($this['post']->images['banner']['default']));
     $imageArray[] = $imageObject;
@@ -41,22 +43,24 @@ $recipe->image($imageArray);
 
 
 // Generate the howto
-$instructions = [];
-$i = 0;
-foreach ($templateData['method_steps'] as $step) {
-    $i++;
-    $howToStep = \Spatie\SchemaOrg\Schema::howToStep()
-        ->name($step['step_title'])
-        ->text($step['step_detail'])
-        ->url($this['post']->url . "#step{$i}");
-    if ($step['step_image']) {
-        $stepImage = \Spatie\SchemaOrg\Schema::imageObject()
-            ->url(\Cms\Classes\MediaLibrary::url($step['step_image']));
-        $howToStep->image($stepImage);
+if (!empty($templateData['method_steps'])) {
+    $instructions = [];
+    $i = 0;
+    foreach ($templateData['method_steps'] as $step) {
+        $i++;
+        $howToStep = \Spatie\SchemaOrg\Schema::howToStep()
+            ->name($step['step_title'])
+            ->text($step['step_detail'])
+            ->url($this['post']->url . "#step{$i}");
+        if ($step['step_image']) {
+            $stepImage = \Spatie\SchemaOrg\Schema::imageObject()
+                ->url(\Cms\Classes\MediaLibrary::url($step['step_image']));
+            $howToStep->image($stepImage);
+        }
+        $instructions[] = $howToStep;
     }
-    $instructions[] = $howToStep;
+    $recipe->recipeInstructions($instructions);
 }
-$recipe->recipeInstructions($instructions);
 
 
 $this['schema_script'] = $recipe->toScript();
@@ -99,13 +103,8 @@ $this['schema_script'] = $recipe->toScript();
 
 <div class="post-body-recipe">
     <div class="row">
-        <div class="col-12">
-            <h5>{{ 'postbody_template.recipe.title.prep_time' | _ }}: {{ template.prep_time }}</h5>
-            {{ template.prologue | raw }}
-        </div>
+    <h3 class="col-12 my-2">{{ 'postbody_template.recipe.title.ingredients' | _ }}</h3>
     </div>
-
-    <h3 class="my-2">{{ 'postbody_template.recipe.title.ingredients' | _ }}</h3>
     <div class="ingredients row py-2">
             <ul class="ingredients-list list-unstyled col-12 col-md-6">
             {% for item in template.ingredients_form.ingredients %}
