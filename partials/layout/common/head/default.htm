@@ -6,16 +6,10 @@
 
 {% component 'alternateHrefLangElements' %}
 
-{% if this.page.meta_title %}
-    <title>{{ this.page.meta_title }}</title>
-{% else %}
-     <title>{{ this.page.title }}</title>
-{% endif %}
-
 {% endplaceholder %}
 
-{# This is all we need to display schema - it's available everywhere #}
-{{ schema.toScript | raw }}
+{# This is all we need to render brilliant but boring meta stuff - it's available everywhere #}
+{{ head_seo | raw }}
 
 {% partial "layout/common/head/google-analytics" %}
 
