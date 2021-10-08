@@ -3,15 +3,20 @@ function onStart()
 {
     // This render is cached, so we cannot add to the graph
     // We will print our schema separately and reference the graph
-    $graph = \App::make('dynamedia.posts.graph');
+
+    // Skip in the backend (plugin renders the partials to grab content for search but there is no frontend controller)
+    if (app()->runningInBackend()) return;
+
+    $seo = \App::make('dynamedia.posts.seo');
+    $seo->loadProperties($this->controller);
 
     $templateData = $this['template'];
 
     $review = \Spatie\SchemaOrg\Schema::review()
         ->setProperty("@id", $this['post']->url . "#productReview")
-        ->setProperty('mainEntityOfPage', ["@id" => $graph->getArticleId()])
-        ->setProperty('isPartOf', ["@id" => $graph->getArticleId()])
-        ->setProperty('author', ["@id" => $graph->getAuthorId()]);
+        ->setProperty('mainEntityOfPage', ["@id" => $seo->getSchemaArticleId()])
+        ->setProperty('isPartOf', ["@id" => $seo->getSchemaArticleId()])
+        ->setProperty('author', ["@id" => $seo->getSchemaAuthorId()]);
 
 
     $product = \Spatie\SchemaOrg\Schema::product()

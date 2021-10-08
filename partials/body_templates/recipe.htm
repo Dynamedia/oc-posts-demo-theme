@@ -1,69 +1,71 @@
 ==
 function onStart()
 {
-// This render is cached, so we cannot add to the graph
-// We will print our schema separately and reference the graph
-$graph = \App::make('dynamedia.posts.graph');
+    // This render is cached, so we cannot add to the graph
+    // We will print our schema separately and reference the graph
 
-$templateData = $this['template'];
+    // Skip in the backend (plugin renders the partials to grab content for search but there is no frontend controller)
+    if (app()->runningInBackend()) return;
 
-$recipe = \Spatie\SchemaOrg\Schema::recipe()
-    ->setProperty('mainEntityOfPage', ["@id" => $graph->getArticleId()])
-    ->setProperty('isPartOf', ["@id" => $graph->getArticleId()])
-    ->setProperty('author', ["@id" => $graph->getAuthorId()])
-    ->name($this['post']->title)
-    ->description(strip_tags($this['post']->excerpt))
-    ->datePublished($this['post']->published_at)
-    // You can do this better ;-)
-    ->prepTime("PT" . $templateData['prep_time_hours'] . "H" . $templateData['prep_time_minutes'] . "M")
-    ->cookTime("PT" . $templateData['cook_time_hours'] . "H" . $templateData['cook_time_minutes'] . "M")
-    ->totalTime("PT" . $templateData['total_time_hours'] . "H" . $templateData['total_time_minutes'] . "M")
-    ->recipeCategory($templateData['category'])
-    ->recipeCuisine($templateData['cuisine'])
-    ->recipeYield($templateData['servings']);
+    $seo = \App::make('dynamedia.posts.seo');
+    $seo->loadProperties($this->controller);
 
-// Create and add the ingredients
-if (!empty($templateData['ingredients_form']['ingredients'])) {
-    $ingredients = [];
-    foreach ($templateData['ingredients_form']['ingredients'] as $item) {
-        $ingredients[] = "{$item['amount']} {$item['name']}";
-    }
-    $recipe->recipeIngredient($ingredients);
-}
+    $templateData = $this['template'];
 
-// at least one image is required
-$imageArray = [];
-if (!empty($this['post']->images['banner']['default'])) {
-    $imageObject = Spatie\SchemaOrg\Schema::imageObject()
-        ->url(\Cms\Classes\MediaLibrary::url($this['post']->images['banner']['default']));
-    $imageArray[] = $imageObject;
-}
-$recipe->image($imageArray);
+    $recipe = \Spatie\SchemaOrg\Schema::recipe()
+        ->setProperty('mainEntityOfPage', ["@id" => $seo->getSchemaArticleId()])
+        ->setProperty('isPartOf', ["@id" => $seo->getSchemaArticleId()])
+        ->setProperty('author', ["@id" => $seo->getSchemaAuthorId()])
+        ->name($this['post']->title)
+        ->description(strip_tags($this['post']->excerpt))
+        ->datePublished($this['post']->published_at)
+        // You can do this better ;-)
+        ->prepTime("PT" . $templateData['prep_time_hours'] . "H" . $templateData['prep_time_minutes'] . "M")
+        ->cookTime("PT" . $templateData['cook_time_hours'] . "H" . $templateData['cook_time_minutes'] . "M")
+        ->totalTime("PT" . $templateData['total_time_hours'] . "H" . $templateData['total_time_minutes'] . "M")
+        ->recipeCategory($templateData['category'])
+        ->recipeCuisine($templateData['cuisine'])
+        ->recipeYield($templateData['servings']);
 
-
-
-// Generate the howto
-if (!empty($templateData['method_steps'])) {
-    $instructions = [];
-    $i = 0;
-    foreach ($templateData['method_steps'] as $step) {
-        $i++;
-        $howToStep = \Spatie\SchemaOrg\Schema::howToStep()
-            ->name($step['step_title'])
-            ->text($step['step_detail'])
-            ->url($this['post']->url . "#step{$i}");
-        if ($step['step_image']) {
-            $stepImage = \Spatie\SchemaOrg\Schema::imageObject()
-                ->url(\Cms\Classes\MediaLibrary::url($step['step_image']));
-            $howToStep->image($stepImage);
+    // Create and add the ingredients
+    if (!empty($templateData['ingredients_form']['ingredients'])) {
+        $ingredients = [];
+        foreach ($templateData['ingredients_form']['ingredients'] as $item) {
+            $ingredients[] = "{$item['amount']} {$item['name']}";
         }
-        $instructions[] = $howToStep;
+        $recipe->recipeIngredient($ingredients);
     }
-    $recipe->recipeInstructions($instructions);
-}
 
+    // at least one image is required
+    $imageArray = [];
+    if (!empty($this['post']->images['banner']['default'])) {
+        $imageObject = Spatie\SchemaOrg\Schema::imageObject()
+            ->url(\Cms\Classes\MediaLibrary::url($this['post']->images['banner']['default']));
+        $imageArray[] = $imageObject;
+    }
+    $recipe->image($imageArray);
 
-$this['schema_script'] = $recipe->toScript();
+    // Generate the howto
+    if (!empty($templateData['method_steps'])) {
+        $instructions = [];
+        $i = 0;
+        foreach ($templateData['method_steps'] as $step) {
+            $i++;
+            $howToStep = \Spatie\SchemaOrg\Schema::howToStep()
+                ->name($step['step_title'])
+                ->text($step['step_detail'])
+                ->url($this['post']->url . "#step{$i}");
+            if ($step['step_image']) {
+                $stepImage = \Spatie\SchemaOrg\Schema::imageObject()
+                    ->url(\Cms\Classes\MediaLibrary::url($step['step_image']));
+                $howToStep->image($stepImage);
+            }
+            $instructions[] = $howToStep;
+        }
+        $recipe->recipeInstructions($instructions);
+    }
+
+    $this['schema_script'] = $recipe->toScript();
 }
 ==
 {# Feel free to include other partials to build modular templates #}
