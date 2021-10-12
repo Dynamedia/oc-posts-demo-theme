@@ -1,6 +1,6 @@
 <nav class="navbar clean bg-light fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
         <a class="navbar-brand" href="/">
-            <strong class="text-primary">{{ this.theme.site_brand | upper }}</strong>
+            <strong class="text-primary">{{ this.theme.data.site_brand ? this.theme.data.site_brand : 'HOME'}}</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
