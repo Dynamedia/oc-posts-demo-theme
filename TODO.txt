@@ -1,1 +1,0 @@
-Display links to direct descendants of categories - Ensure complete silo structure by default
