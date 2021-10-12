@@ -4,6 +4,10 @@ author: "Dynamedia (Rob Ballantyne)"
 authorCode: "Dynamedia"
 homepage: "https://dynamedia.uk"
 code: "postsdemo"
+require:
+    - "RainLab.Translate"
+    - "RainLab.Pages"
+    - "Dynamedia.Posts"
 postsBackendCss: "/themes/postsdemo/assets/css/dist/backend-posts.css"
 translate: config/lang.yaml
 form:
