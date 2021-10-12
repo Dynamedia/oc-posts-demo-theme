@@ -2,7 +2,26 @@
     "name": "dynamedia/postsdemo-theme",
     "type": "october-theme",
     "description": "Demo theme for Dynamedia Posts plugin",
+    "homepage": "https://github.com/Dynamedia/oc-posts-demo-theme",
+    "keywords": [
+        "october",
+        "october CMS",
+        "content marketing",
+        "laravel",
+        "blog",
+        "posts",
+        "publishing"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rob Ballantyne",
+            "email": "rob@dynamedia.uk",
+            "role": "Author"
+        }
+    ],
     "require": {
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "dynamedia/posts-plugin": "~1.0"
     }
 }
