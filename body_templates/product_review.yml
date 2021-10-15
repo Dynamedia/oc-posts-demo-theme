@@ -1,79 +1,79 @@
-name: theme.postsdemo::lang.postbody_templates.product_review.name
+name: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.name
 partial: product_review
 tabs:
     fields:
         product_name:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_name
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.product_name
 
         product_description:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_description
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.product_description
 
         product_info_url:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_info_url
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.product_info_url
 
         product_buy_store:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_buy_store
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.product_buy_store
 
         product_buy_url:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_buy_url
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.product_buy_url
 
         product_rating:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.detail
-            label: theme.postsdemo::lang.postbody_templates.product_review.labels.product_rating
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.detail
+            label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.product_rating
             type: dropdown
             options:
-                1: theme.postsdemo::lang.postbody_templates.product_review.labels.rating_1
-                2: theme.postsdemo::lang.postbody_templates.product_review.labels.rating_2
-                3: theme.postsdemo::lang.postbody_templates.product_review.labels.rating_3
-                4: theme.postsdemo::lang.postbody_templates.product_review.labels.rating_4
-                5: theme.postsdemo::lang.postbody_templates.product_review.labels.rating_5
+                1: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.rating_1
+                2: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.rating_2
+                3: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.rating_3
+                4: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.rating_4
+                5: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.rating_5
 
         product_intro:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.introduction
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.introduction
             type: richeditor
             size: huge
 
         product_review_body:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.review_body
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.review_body
             type: richeditor
             size: huge
 
         product_images:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.images
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.images
             type: repeater
             form:
                 fields:
                     image:
-                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.image
+                        label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.image
                         type: mediafinder
                     alt_text:
-                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.alt_text
+                        label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.alt_text
                     caption:
-                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.caption
+                        label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.caption
 
         product_positives:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.positives
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.positives
             type: repeater
             form:
                 fields:
                     reason:
-                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.reason
+                        label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.reason
 
         product_negatives:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.negatives
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.negatives
             type: repeater
             form:
                 fields:
                     reason:
-                        label: theme.postsdemo::lang.postbody_templates.product_review.labels.reason
+                        label: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.labels.reason
 
         product_verdict:
-            tab: theme.postsdemo::lang.postbody_templates.product_review.tabs.verdict
+            tab: theme.dynamedia-postsdemo::lang.postbody_templates.product_review.tabs.verdict
             type: richeditor
             size: huge
 
