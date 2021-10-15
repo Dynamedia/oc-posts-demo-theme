@@ -25,5 +25,8 @@
         "rainlab/pages-plugin": "~1.0",
         "rainlab/translate-plugin": "~1.0",
         "dynamedia/posts-plugin": "~1.0"
+    },
+    "extra": {
+        "installer-name": "postsdemo"
     }
 }
